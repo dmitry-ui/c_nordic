@@ -15,12 +15,12 @@ namespace Lesson01
             string str;
             Console.WriteLine("Введите  свое имя:");
             str = Console.ReadLine();
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
             Console.WriteLine("Ваше имя: {0}", str);
             //Console.WriteLine($"Ваше имя: {str}");
 
             Console.WriteLine("До свидания: {0}", str);
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
             Console.ReadKey();
         }
     }
