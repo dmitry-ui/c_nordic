@@ -31,7 +31,16 @@ namespace Lesson02
             //плав точка
 
 
-            
+            int sun=1_321_123;
+            long univers = sun;
+
+            //ошибка
+            //sun=univers
+
+            //надо так
+            sun = (int)univers;
+            //в строку можно превратить все:
+            string valueOfSun = sun.ToString();
 
 
 
