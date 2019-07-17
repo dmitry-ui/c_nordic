@@ -41,9 +41,17 @@ namespace Lesson02
             sun = (int)univers;
             //в строку можно превратить все:
             string valueOfSun = sun.ToString();
+            Console.WriteLine("valueOfSun={0}", valueOfSun);
+            Console.WriteLine(sun);
 
+            //если надо записать в int  с клавиатуры:
+            Console.WriteLine("Введите число:");
+            string value = Console.ReadLine();
+            int intVal = int.Parse(value); //  Parse  -  что мы парсим чтобы получить int
 
-
+            Console.WriteLine(value + value);
+            Console.WriteLine(intVal + intVal);
+                                 
             Console.WriteLine("Hello World! {0}/{1}={2}", a, b, a/b);
             Console.WriteLine($"{a}*{b}={a * b}");
             Console.WriteLine(a * b*c*d);
