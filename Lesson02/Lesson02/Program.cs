@@ -10,16 +10,36 @@ namespace Lesson02
             b = 5;
             int a=10;
             Int32 c = 15;// тот же int
+            System.Int32 d = 20;// тот же int
             string name = "Некоторая строка";
             char ch = 'r';
             var myvar = 15;
             var myvar1 = "строка";
+
+            //форматы целых чисел
+            byte maxBite = 255; //от 0 до 255
+            sbyte maxSignedBite=SByte.MaxValue; // от -128 до 127
+            sbyte minSignedBite = SByte.MinValue;
+
+            byte ageHex = 0x24;
+            Console.WriteLine(ageHex);
+
+
+            //два байта
+            short df = -21;
+
+            //плав точка
+
+
             
+
+
 
             Console.WriteLine("Hello World! {0}/{1}={2}", a, b, a/b);
             Console.WriteLine($"{a}*{b}={a * b}");
-            Console.WriteLine(a * b);
+            Console.WriteLine(a * b*c*d);
             Console.WriteLine(name);
+            Console.WriteLine(myvar1);
             var q = Console.ReadKey();
 
             Console.ReadKey();
