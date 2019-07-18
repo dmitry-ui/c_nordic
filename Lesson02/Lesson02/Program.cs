@@ -71,11 +71,7 @@ namespace Lesson02
 
             Console.WriteLine("{0}+{1}={2}", first, second, second + first);
 
-
-
-
-
-
+            Console.WriteLine("Введите любой символ для выхода.");
             Console.ReadKey();
         }
     }
