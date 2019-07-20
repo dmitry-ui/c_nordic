@@ -15,5 +15,6 @@ class ExeParams
         {
             Console.WriteLine(Arg[i]);
         }
+        Console.ReadKey();
     }
 }
