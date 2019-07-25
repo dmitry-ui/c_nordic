@@ -13,6 +13,10 @@ namespace Nasledovanie_2
             {
             this.a = a;
             }
+        public void Show1()
+        {
+            Console.WriteLine("В базовом классе а={0}", a);
+        }
     }
 
     class Def:Abc
@@ -37,11 +41,24 @@ namespace Nasledovanie_2
         }
         public void Show()
         {
-
+            /*
+             Несмотря на то что переменная экземпляра i в производном классе В скрывает
+             переменную i из базового класса А, ключевое слово base разрешает доступ 
+             к переменной i, определенной в базовом классе
+             */
             //чтобы получить значение открытого члена a из базового класса
             //используем оператор base
             Console.WriteLine("a в базовом классе равно {0}", base.a);
             Console.WriteLine("a в производном классе равно {0}", a);
+        }
+        
+        //аналогично с методами:
+        new public void Show1()
+        {
+            //вызываем метод из базового класса
+            base.Show1();
+            //добавляем вывод переменной из производного класса
+            Console.WriteLine("В производном классе а={0}", a);
         }
     }
 
@@ -52,6 +69,7 @@ namespace Nasledovanie_2
             Def val = new Def(4,5);
            
             val.Show();
+            val.Show1();
             Console.ReadKey();
             
         }
