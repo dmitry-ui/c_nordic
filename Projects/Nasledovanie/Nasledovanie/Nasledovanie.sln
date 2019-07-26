@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nasledovanie", "Nasledovani
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nasledovanie_2", "Nasledovanie_2\Nasledovanie_2.csproj", "{D5416906-8B0C-4517-AF6A-4AD2FA432517}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorTriAngle", "ColorTriAngle\ColorTriAngle.csproj", "{FE1EC57C-5CCB-488C-BA0D-0AAED6BBC5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructorsOrder", "ConstructorsOrder\ConstructorsOrder.csproj", "{413742F4-5DF9-4148-B277-1A15B4030ED1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D5416906-8B0C-4517-AF6A-4AD2FA432517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5416906-8B0C-4517-AF6A-4AD2FA432517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5416906-8B0C-4517-AF6A-4AD2FA432517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1EC57C-5CCB-488C-BA0D-0AAED6BBC5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1EC57C-5CCB-488C-BA0D-0AAED6BBC5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1EC57C-5CCB-488C-BA0D-0AAED6BBC5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1EC57C-5CCB-488C-BA0D-0AAED6BBC5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{413742F4-5DF9-4148-B277-1A15B4030ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{413742F4-5DF9-4148-B277-1A15B4030ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{413742F4-5DF9-4148-B277-1A15B4030ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{413742F4-5DF9-4148-B277-1A15B4030ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
