@@ -61,6 +61,7 @@ namespace HomeWork_Lesson02
             else if (tempCh == "^")
                 Console.WriteLine("{0} в степени {1} = {2}", num1, num2, Math.Pow(num1, num2));
             else
+
                 {
                     Console.WriteLine("Введите корректный знак операции, см. в скобках");
                     goto OnceMore;
