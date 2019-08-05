@@ -100,25 +100,25 @@ namespace Lesson3
 
 
 
+            //вывести таблицу Пифагора на экран
+            int[] First = { 1,2,3,4,5,6,7,8,9,10};
+            int[] Second = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            int[][] res = new int[10][10];
-
-            for (int i=1; i<10;i++)
-                for(int j=1; j<10; j++)
-                {
-                    Console.WriteLine("{0}*{1}={2}", i, j, i * j);
-        
-                }
-
-            for (int i = 1; i < 10; i++)
-                Console.Write(i + "   ");
+            for (int i = 0; i < First.Length; i++)
+                Console.Write(First[i] + "    ");
             Console.WriteLine();
-            for (int j = 1; j < 10; j++)
-                Console.Write(j + "   ");
+            for (int i = 0; i < First.Length; i++)
+                if (i==0)
+                    Console.Write(Second[i] + "    ");
+                else
+                    Console.Write("{0}    ", First[i] * Second[i]);
+
 
 
             //прочитать из консоли 5 элементов типа int
             //вывести квадраты этих чисел
+
+
 
 
 
