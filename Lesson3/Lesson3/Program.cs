@@ -62,34 +62,64 @@ namespace Lesson3
             //Console.WriteLine(i.Value);   //будет работать только если есть значение у переменной
 
             //////////////////массивы
-            string[] names = new string[5];
-            names[0] = "Дима";
-            names[1] = "Паша";
-            names[2] = "Саша";
-            names[3] = "Ната";
-            names[4] = "Люда";
+            //string[] names = new string[5];
+            //names[0] = "Дима";
+            //names[1] = "Паша";
+            //names[2] = "Саша";
+            //names[3] = "Ната";
+            //names[4] = "Люда";
 
-            //сразу с инициализацией
-            string[] names1 = {"Петр", "Алексей"};
+            ////сразу с инициализацией
+            //string[] names1 = {"Петр", "Алексей"};
 
 
-            //for (int i=0; i<names.Length;i++)
+            ////for (int i=0; i<names.Length;i++)
+            ////{
+            ////    Console.WriteLine(names[i]);
+            ////}
+
+            //for (int i = 0; i < names.Length; i++)
             //{
-            //    Console.WriteLine(names[i]);
+            //    Console.Write(names[i] + " ");
             //}
 
-            for (int i = 0; i < names.Length; i++)
-            {
-                Console.Write(names[i] + " ");
-            }
-
-            Console.WriteLine();
-            for (int i = 0; i < names1.Length; i++)
-            {
-                Console.Write(names1[i] + " ");
-            }
+            //Console.WriteLine();
+            //for (int i = 0; i < names1.Length; i++)
+            //{
+            //    Console.Write(names1[i] + " ");
+            //}
 
             //определить два массива одинаковой 
+            string[] trees = { "Ясень", "Липа", "Кедр" };
+            int[] ages = { 32, 24, 43 };
+            for (int i = 0; i < trees.Length; i++)
+            {
+                Console.WriteLine(trees[i] + " - возраст в годах: " + ages[i]);
+            }
+
+
+
+
+
+            int[][] res = new int[10][10];
+
+            for (int i=1; i<10;i++)
+                for(int j=1; j<10; j++)
+                {
+                    Console.WriteLine("{0}*{1}={2}", i, j, i * j);
+        
+                }
+
+            for (int i = 1; i < 10; i++)
+                Console.Write(i + "   ");
+            Console.WriteLine();
+            for (int j = 1; j < 10; j++)
+                Console.Write(j + "   ");
+
+
+            //прочитать из консоли 5 элементов типа int
+            //вывести квадраты этих чисел
+
 
 
 
