@@ -61,7 +61,38 @@ namespace Lesson3
             //Console.WriteLine(i.HasValue); //проверить есть ли значение в переменной
             //Console.WriteLine(i.Value);   //будет работать только если есть значение у переменной
 
-            //массивы
+            //////////////////массивы
+            string[] names = new string[5];
+            names[0] = "Дима";
+            names[1] = "Паша";
+            names[2] = "Саша";
+            names[3] = "Ната";
+            names[4] = "Люда";
+
+            //сразу с инициализацией
+            string[] names1 = {"Петр", "Алексей"};
+
+
+            //for (int i=0; i<names.Length;i++)
+            //{
+            //    Console.WriteLine(names[i]);
+            //}
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                Console.Write(names[i] + " ");
+            }
+
+            Console.WriteLine();
+            for (int i = 0; i < names1.Length; i++)
+            {
+                Console.Write(names1[i] + " ");
+            }
+
+            //определить два массива одинаковой 
+
+
+
 
 
 
