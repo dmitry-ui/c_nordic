@@ -117,8 +117,8 @@ namespace Lesson3
 
             //прочитать из консоли 5 элементов типа int
             //вывести квадраты этих чисел
-            Console.WriteLine("Введите первое натуральное число:");
-            int val_1 = Console.ReadLine();
+            //Console.WriteLine("Введите первое натуральное число:");
+            //int val_1 = Console.ReadLine();
 
 
 
