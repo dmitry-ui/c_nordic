@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 
 namespace Lesson3_Home
 {
@@ -18,7 +18,10 @@ namespace Lesson3_Home
                     Console.Write("{0}   \t ", First[j] * Second[i]);
                 Console.WriteLine();
             }
-
+            
+            
+            ////////////////
+            Console.WriteLine();
             //вывести таблицу Пифагора на экран 
             //решить через двумерный массив
             int[,] rest = new int[10, 10];
@@ -28,9 +31,9 @@ namespace Lesson3_Home
                 rest[0, i] = i + 1;
 
             //посмотрим 
-            for (int i = 0; i <= 9; i++)
+            for (int i = 1; i <= 9; i++)
             {
-                for (int j = 0; j <= 9; j++)
+                for (int j = 1; j <= 9; j++)
                     Console.Write("{0} \t", rest[i, j]);
                 Console.WriteLine();
             }
@@ -40,20 +43,20 @@ namespace Lesson3_Home
 
                     //прочитать из консоли 5 элементов типа int
                     //вывести квадраты этих чисел
-                    Console.WriteLine("Еще ДЗ.");
-            int[] res = new int[5];  
-            Console.WriteLine("Введите пять целых чисел:");
-            for(int i=0; i<5; i++)
-            {
-                Console.WriteLine("Введите {0} число:", i+1);
-                res[i] = Convert.ToInt32(Console.ReadLine());
-            }
-            //вывод квадратов введеных чисел
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("{0}*{0}={1}   \t", res[i], res[i] * res[i]);
-            }
-            Console.WriteLine();
+            //        Console.WriteLine("Еще ДЗ.");
+            //int[] res = new int[5];  
+            //Console.WriteLine("Введите пять целых чисел:");
+            //for(int i=0; i<5; i++)
+            //{
+            //    Console.WriteLine("Введите {0} число:", i+1);
+            //    res[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+            ////вывод квадратов введеных чисел
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write("{0}*{0}={1}   \t", res[i], res[i] * res[i]);
+            //}
+            //Console.WriteLine();
             Console.ReadKey();
 
         }
