@@ -19,11 +19,29 @@ namespace Lesson3_Home
                 Console.WriteLine();
             }
 
+            //вывести таблицу Пифагора на экран 
+            //решить через двумерный массив
+            int[,] rest = new int[10, 10];
+            for (int i = 0; i <= 9; i++)
+                rest[i, 0] = i + 1;
+            for (int i = 0; i <= 9; i++)
+                rest[0, i] = i + 1;
 
-            //прочитать из консоли 5 элементов типа int
-            //вывести квадраты этих чисел
-            Console.WriteLine("Еще ДЗ.");
-            int[] res = new int[5];
+            //посмотрим 
+            for (int i = 0; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                    Console.Write("{0} \t", rest[i, j]);
+                Console.WriteLine();
+            }
+
+
+
+
+                    //прочитать из консоли 5 элементов типа int
+                    //вывести квадраты этих чисел
+                    Console.WriteLine("Еще ДЗ.");
+            int[] res = new int[5];  
             Console.WriteLine("Введите пять целых чисел:");
             for(int i=0; i<5; i++)
             {
