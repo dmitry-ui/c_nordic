@@ -92,7 +92,7 @@ namespace Lesson04
 
         //исп это в дз.
         string inputwindirection = Console.ReadLine();
-        WindDirection wd2 = (WindDirection)Enum.Parse(typeof(WindDirection), inputwindirection);
+        
 
     }
 }
