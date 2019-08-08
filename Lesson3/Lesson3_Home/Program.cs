@@ -7,36 +7,64 @@ namespace Lesson3_Home
         static void Main(string[] args)
         {
 
-            //вывести таблицу Пифагора на экран
-            Console.WriteLine("Выведем таблицу Пифагора:");
-            int[] First = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-            int[] Second = { 1, 2, 3, 4, 5, 6};
-
-            for (int i = 0; i < Second.Length; i++)
-            {
-                for (int j = 0; j < First.Length; j++)
-                    Console.Write("{0}   \t ", First[j] * Second[i]);
-                Console.WriteLine();
-            }
-            
-            
-            ////////////////
+           //1 способ
             Console.WriteLine();
-            //вывести таблицу Пифагора на экран 
-            //решить через двумерный массив
-            int[,] rest = new int[10, 10];
-            for (int i = 0; i <= 9; i++)
-                rest[i, 0] = i + 1;
-            for (int i = 0; i <= 9; i++)
-                rest[0, i] = i + 1;
+            Console.WriteLine("1 способ");
+            int[] first = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int[] second = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            //посмотрим 
-            for (int i = 1; i <= 9; i++)
+            for (int i = 0; i < second.Length; i++)
             {
-                for (int j = 1; j <= 9; j++)
-                    Console.Write("{0} \t", rest[i, j]);
+                for (int j = 0; j < first.Length; j++)
+                {
+                    Console.Write("{0} \t", second[i] * first[j]);
+                }
                 Console.WriteLine();
             }
+
+
+            //2 способ
+            Console.WriteLine();
+            Console.WriteLine("2 способ");
+            int mFirst = 2;  //первый множитель начало
+            int mStep = 2;  //приращение первого множителя
+            int mEnd = 20;  //первый множитель конец
+
+            int nFirst = 2;   //второй множитель начало
+            int nStep = 1;  //приращение второго множителя
+            int nEnd = 18;    //второй множитель конец
+
+            //вывод первого множителя
+            Console.Write("".PadLeft(6, ' '));
+            for (int i = mFirst; i <= mEnd; i+=mStep)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(Convert.ToString(i, 10).PadLeft(6, ' '));
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.WriteLine();
+
+            //вывод второго множителя и произведений на первый множитель по строке
+            for (int m = nFirst; m <= nEnd; m+=nStep)
+            {
+                //вывод второго множителя
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(Convert.ToString(m, 10).PadLeft(6, ' '));
+                Console.ForegroundColor = ConsoleColor.White;
+                //вывод произведений
+                for (int n = mFirst; n <= mEnd; n+=mStep)
+                {
+                    //  Console.Write("{0} \t", second[i] * first[j]);
+                    Console.Write(Convert.ToString(m * n, 10).PadLeft(6, ' '));
+                }
+                Console.WriteLine();  //переход на новую строку
+            }
+            Console.WriteLine();
+
+            Console.ReadKey(); 
+            
+            
+           
 
 
 
