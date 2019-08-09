@@ -23,16 +23,19 @@ namespace Lesson04_Home
         static void Main(string[] args)
         {
             ColorsOf FavouriteColors =ColorsOf.None;
-            
+            ColorsOf AllColors;
+            AllColors = ColorsOf.Black | ColorsOf.Blue | ColorsOf.Cyan | ColorsOf.Green | ColorsOf.Grey | ColorsOf.Magenta | ColorsOf.Red | ColorsOf.White;
             //вывод всей коллекции слабоват
-            ColorsOf tempColorsOf= ColorsOf.Black;
-            for (tempColorsOf = ColorsOf.Black; tempColorsOf <= ColorsOf.White; tempColorsOf++)
-                Console.WriteLine("{0} - {1}", tempColorsOf, (byte)tempColorsOf);
-
+            //ColorsOf tempColorsOf= ColorsOf.Black;
+            //for (tempColorsOf = ColorsOf.Black; tempColorsOf <= ColorsOf.White; tempColorsOf++)
+            //    Console.WriteLine("{0} - {1}", tempColorsOf, (byte)tempColorsOf);
+            Console.WriteLine("\nВся коллекция:\n");
+            Console.WriteLine(AllColors);
+            
 
             //выбираем 4 любимых цвета
             //надо бы TryParse
-            Console.WriteLine("\nВведите 4 любимых цвета:\n");
+            Console.WriteLine("\nВведите 4 любимых цвета(можно их коды):\n");
             string inputColor;
             for (int i = 0; i <= 3; i++)
             {
