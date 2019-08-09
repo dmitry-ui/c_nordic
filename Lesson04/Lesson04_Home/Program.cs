@@ -5,47 +5,50 @@ namespace Lesson04_Home
     class Program
     {
         //задаем палитру
-        [Flags]
+       [Flags]
         enum  ColorsOf: byte
         {
             None=0,
             Black=1,
             Blue = 1<<1,
-            Cyan = 1 <<2,
-            Grey = 1 <<3,
-            Green = 1 <<4,
-            Magenta = 1 <<5,
-            Red = 1 <<6,
-            White = 1 <<7, 
-            //Yellow = 1 <<8
+            Cyan = 1<<2,
+            Grey = 1<<3,
+            Green = 1<<4,
+            Magenta = 1<<5,
+            Red = 1<<6,
+            White = 1<<7
+           // Yellow = 9
         }
 
         static void Main(string[] args)
         {
-            //ColorsOf MyFavouriteColors = ColorsOf.Black | ColorsOf.Green | ColorsOf.Red;
-            //String str = "Black";
-            //String str1 = "Blue";
-            ColorsOf MyFavouriteColors1 =ColorsOf.None;
-             //MyFavouriteColors1 = MyFavouriteColors1 | (ColorsOf)Enum.Parse(typeof(ColorsOf), str1);
+            ColorsOf FavouriteColors =ColorsOf.None;
+            
+            //вывод всей коллекции слабоват
+            ColorsOf tempColorsOf= ColorsOf.Black;
+            for (tempColorsOf = ColorsOf.Black; tempColorsOf <= ColorsOf.White; tempColorsOf++)
+                Console.WriteLine("{0} - {1}", tempColorsOf, (byte)tempColorsOf);
 
-            Console.WriteLine("Введите число соответствующее цвету:");
+
+            //выбираем 4 любимых цвета
+            //надо бы TryParse
+            Console.WriteLine("\nВведите 4 любимых цвета:\n");
             string inputColor;
-            for (int i=0; i<=3; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 inputColor = Console.ReadLine();
-                MyFavouriteColors1 = MyFavouriteColors1 | (ColorsOf)Enum.Parse(typeof(ColorsOf), inputColor);
-
+                FavouriteColors = FavouriteColors | (ColorsOf)Enum.Parse(typeof(ColorsOf), inputColor);
             }
 
+            //вывод любимых цветов
+            Console.WriteLine("\nЛюбимые цвета:");
+            Console.WriteLine(FavouriteColors);
 
-               
-
-            //ColorsOf MyNotFavouriteColors = ~MyFavouriteColors;
-            //Console.WriteLine(MyFavouriteColors);
-            Console.WriteLine(MyFavouriteColors1);
-
-            //Console.WriteLine(MyNotFavouriteColors);
-
+            //получение и вывод остальных цветов
+            ColorsOf NotFavouriteColors = ~FavouriteColors;
+            Console.WriteLine("\nОстальные цвета:");
+            Console.WriteLine(NotFavouriteColors);
+            
             Console.ReadKey();
         }
     }
