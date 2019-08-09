@@ -23,14 +23,20 @@ namespace Lesson04_Home
         static void Main(string[] args)
         {
             ColorsOf FavouriteColors =ColorsOf.None;
-            ColorsOf AllColors;
-            AllColors = ColorsOf.Black | ColorsOf.Blue | ColorsOf.Cyan | ColorsOf.Green | ColorsOf.Grey | ColorsOf.Magenta | ColorsOf.Red | ColorsOf.White;
-            //вывод всей коллекции слабоват
+            //ColorsOf AllColors;
+            //AllColors = ColorsOf.Black | ColorsOf.Blue | ColorsOf.Cyan | ColorsOf.Green | ColorsOf.Grey | ColorsOf.Magenta | ColorsOf.Red | ColorsOf.White;
             //ColorsOf tempColorsOf= ColorsOf.Black;
             //for (tempColorsOf = ColorsOf.Black; tempColorsOf <= ColorsOf.White; tempColorsOf++)
             //    Console.WriteLine("{0} - {1}", tempColorsOf, (byte)tempColorsOf);
-            Console.WriteLine("\nВся коллекция:\n");
-            Console.WriteLine(AllColors);
+            
+            //вывод всей коллекции
+            Console.WriteLine("\nВся коллекция:");
+            foreach (string i in Enum.GetNames(typeof(ColorsOf)))
+                Console.WriteLine(i);
+
+            Console.WriteLine("\nИх коды(соответственно):");
+            foreach (byte i in Enum.GetValues(typeof(ColorsOf)))
+                Console.WriteLine(i);
             
 
             //выбираем 4 любимых цвета
