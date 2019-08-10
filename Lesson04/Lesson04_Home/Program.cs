@@ -25,10 +25,10 @@ namespace Lesson04_Home
             ColorsOf FavouriteColors =ColorsOf.None;
             //ColorsOf AllColors;
             //AllColors = ColorsOf.Black | ColorsOf.Blue | ColorsOf.Cyan | ColorsOf.Green | ColorsOf.Grey | ColorsOf.Magenta | ColorsOf.Red | ColorsOf.White;
-            //ColorsOf tempColorsOf= ColorsOf.Black;
+            //ColorsOf tempColorsOf = ColorsOf.Black;
             //for (tempColorsOf = ColorsOf.Black; tempColorsOf <= ColorsOf.White; tempColorsOf++)
             //    Console.WriteLine("{0} - {1}", tempColorsOf, (byte)tempColorsOf);
-            
+
             //вывод всей коллекции
             Console.WriteLine("\nВся коллекция:");
             foreach (string i in Enum.GetNames(typeof(ColorsOf)))
