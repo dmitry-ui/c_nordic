@@ -57,9 +57,10 @@ namespace Lesson04_Home
 
             //получение и вывод остальных цветов
             ColorsOf NotFavouriteColors = ~FavouriteColors; //инверсия
-            NotFavouriteColors = NotFavouriteColors & AllColors; //очищаем старшие разряды в которых нет значение
+            //NotFavouriteColors = NotFavouriteColors & AllColors; //очищаем старшие разряды в которых нет значение
             //или так
-            //NotFavouriteColors = NotFavouriteColors;
+            NotFavouriteColors = (ColorsOf)(((int)NotFavouriteColors<<23)>>23);
+            //NotFavouriteColors = (ColorsOf)((((int)NotFavouriteColors << 23)>>23));
             Console.WriteLine("\nОстальные цвета:");
             Console.WriteLine(NotFavouriteColors);
             
