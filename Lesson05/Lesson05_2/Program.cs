@@ -15,7 +15,7 @@ namespace Lesson05_2
             catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Произошла ошибка работы программы!");
+                Console.WriteLine($"Произошла ошибка работы программы!\n {e.Message}");
                 throw;                                                                  //вызовем текст исключения
             }
 
