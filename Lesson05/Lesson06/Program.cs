@@ -68,6 +68,7 @@ namespace Lesson06
             //}
             //Console.WriteLine("Сумма {0}", sum);
 
+            //получить средние оценки за день и за неделю
             int[][] marks = new[]
             {
                 new[] {2,3,3,2,3},
