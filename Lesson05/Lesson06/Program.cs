@@ -69,6 +69,41 @@ namespace Lesson06
             //Console.WriteLine("Сумма {0}", sum);
 
             //получить средние оценки за день и за неделю
+            //int[][] marks = new[]
+            //{
+            //    new[] {2,3,3,2,3},
+            //    new[] {2,4,5,3},
+            //    null,
+            //    //new[] {2,4,5,3},
+            //    new[] {5,5,5,5},
+            //    new[] {4}
+            //};
+            //double avrDay = 0;
+            //double sumDay = 0;
+            //double avrWeek = 0;
+            //double sumWeek = 0;
+            //int Count = 0;
+            //for (int i=0; i< marks.Length; i++)
+            //{
+            //    if (marks[i] != null)
+            //    {
+            //        for (int j = 0; j < marks[i].Length; j++)
+            //        {
+            //            Count += 1;
+            //            sumDay = sumDay + marks[i][j];
+            //        }
+            //        avrDay = sumDay / marks[i].Length;
+            //        Console.WriteLine("За день {0}: средний бал {1}", i, avrDay);
+            //        sumWeek = sumWeek + sumDay;
+            //        sumDay = 0;
+            //    }
+            //}
+            //avrWeek = sumWeek / Count;
+            //Console.WriteLine("За неделю средний бал {0}", Math.Round(avrWeek,2));
+            //Console.ReadKey();
+
+
+            //переписать на foreach
             int[][] marks = new[]
             {
                 new[] {2,3,3,2,3},
@@ -83,7 +118,7 @@ namespace Lesson06
             double avrWeek = 0;
             double sumWeek = 0;
             int Count = 0;
-            for (int i=0; i< marks.Length; i++)
+            for (int i = 0; i < marks.Length; i++)
             {
                 if (marks[i] != null)
                 {
@@ -99,7 +134,9 @@ namespace Lesson06
                 }
             }
             avrWeek = sumWeek / Count;
-            Console.WriteLine("За неделю средний бал {0}", Math.Round(avrWeek,2));
+            Console.WriteLine("За неделю средний бал {0}", Math.Round(avrWeek, 2));
+            Console.ReadKey();
+
             Console.ReadKey();
         }
     }
