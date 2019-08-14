@@ -51,7 +51,7 @@ namespace Lesson05_Home
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Введено нечисловое значение:\n{0}", e.Message);
                 Console.ForegroundColor = ConsoleColor.White;
-                //throw;
+                throw;
             }
             if(intType>3 || intType<1)
             {
@@ -64,26 +64,34 @@ namespace Lesson05_Home
 
             TF = (TypeFigure)intType;
 
-            switch (TF)
+            try
             {
-                case TypeFigure.Round:
-                    Radius = InputDoubleValue("Введите радиус круга:");
-                    Console.WriteLine("Площадь круга {0}", pi* Radius * Radius);
-                    Console.WriteLine("Длина окружности {0}", 2 * pi * Radius);
-                    break;
+                switch (TF)
+                {
+                    case TypeFigure.Round:
+                        Radius = InputDoubleValue("Введите радиус круга:");
+                        Console.WriteLine("Площадь круга {0}", pi * Radius * Radius);
+                        Console.WriteLine("Длина окружности {0}", 2 * pi * Radius);
+                        break;
 
-                case TypeFigure.Triangle:
-                    lengthTriangle = InputDoubleValue("Введите длину стороны треугольника:");
-                    Console.WriteLine("Площадь треугольника {0}", Math.Sqrt(3)* lengthTriangle* lengthTriangle/4);
-                    Console.WriteLine("Периметр треугольника {0}", 3* lengthTriangle);
-                    break;
+                    case TypeFigure.Triangle:
+                        lengthTriangle = InputDoubleValue("Введите длину стороны треугольника:");
+                        Console.WriteLine("Площадь треугольника {0}", Math.Sqrt(3) * lengthTriangle * lengthTriangle / 4);
+                        Console.WriteLine("Периметр треугольника {0}", 3 * lengthTriangle);
+                        break;
 
-                case TypeFigure.Rectangle:
-                    lengthREctangleA = InputDoubleValue("Введите длину первой стороны прямоугольника:");
-                    lengthREctangleB = InputDoubleValue("Введите длину второй стороны прямоугольника:");
-                    Console.WriteLine("Площадь прямоугольника {0}", lengthREctangleA* lengthREctangleB);
-                    Console.WriteLine("Периметр прямоугольника {0}", 2 *(lengthREctangleA + lengthREctangleB));
-                    break;
+                    case TypeFigure.Rectangle:
+                        lengthREctangleA = InputDoubleValue("Введите длину первой стороны прямоугольника:");
+                        lengthREctangleB = InputDoubleValue("Введите длину второй стороны прямоугольника:");
+                        Console.WriteLine("Площадь прямоугольника {0}", lengthREctangleA * lengthREctangleB);
+                        Console.WriteLine("Периметр прямоугольника {0}", 2 * (lengthREctangleA + lengthREctangleB));
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Ошибка! {0}", e.Message);
+
             }
                  
 
