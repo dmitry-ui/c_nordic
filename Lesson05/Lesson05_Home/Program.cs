@@ -10,92 +10,105 @@ namespace Lesson05_Home
     }
     class Program
     {
+        public const double pi = 3.14;
         static double InputDoubleValue(string comment)
         {
-            double db=0;
             Console.WriteLine(comment);
-            try
+            double doubleValue;
+            do
             {
-                db = double.Parse(Console.ReadLine());
+                try
+                {
+                    doubleValue = double.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Введено нечисловое значение.\nПовторите попытку:");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    continue;
+                }
+                break;
             }
-            catch (Exception e)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Введено нечисловое значение:\n{0}", e.Message);
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            
-
-            return db;
+            while (true);
+            return doubleValue;
         }
-        
+
+        static int InputIntValue(string comment, int maxValue, int minValue)
+        {
+            Console.WriteLine(comment);
+            //string str = Console.ReadLine();
+            int intValue;
+            do
+            {
+                string str = Console.ReadLine();
+                try
+                {
+                    intValue = int.Parse(str);
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Введено нечисловое значение.\nПовторите попытку");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    continue;
+                }
+
+                if (intValue > maxValue || intValue < minValue)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ошибка! Необходимо ввести целое число от 1 до 3");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    continue;
+                }
+                break;
+                
+            }
+            while (true);
+            return intValue;
+        }
+        static void SquareAndPerimetrOfRound()
+        {
+            double Radius = InputDoubleValue("Введите радиус круга:");
+            Console.WriteLine("Площадь круга {0}", pi * Radius * Radius);
+            Console.WriteLine("Длина окружности {0}", 2 * pi * Radius);
+        }
+        static void SquareAndPerimetrOfTriangle()
+        {
+            double lengthTriangle = InputDoubleValue("Введите длину стороны треугольника:");
+            Console.WriteLine("Площадь треугольника {0}", Math.Sqrt(3) * lengthTriangle * lengthTriangle / 4);
+            Console.WriteLine("Периметр треугольника {0}", 3 * lengthTriangle);
+        }
+        static void SquareAndPerimetrOfRectangle()
+        {
+            double lengthREctangleA = InputDoubleValue("Введите длину первой стороны прямоугольника:");
+            double lengthREctangleB = InputDoubleValue("Введите длину второй стороны прямоугольника:");
+            Console.WriteLine("Площадь прямоугольника {0}", lengthREctangleA * lengthREctangleB);
+            Console.WriteLine("Периметр прямоугольника {0}", 2 * (lengthREctangleA + lengthREctangleB));
+        }
         static void Main(string[] args)
         {
             TypeFigure TF;
-            double Radius = 0;
-            double lengthTriangle = 0;
-            double lengthREctangleA = 0;
-            double lengthREctangleB = 0;
-            double pi = 3.14;
-            int intType=0;
+            int intType;
 
-            Console.WriteLine("Введите тип фигуры (1 - круг, 2 - равносторонний треугольник, 3- прямоугольник):");
-            string str = Console.ReadLine();
-
-            try
-            {
-                intType = int.Parse(str);
-            }
-            catch (Exception e)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Введено нечисловое значение:\n{0}", e.Message);
-                Console.ForegroundColor = ConsoleColor.White;
-                throw;
-            }
-            if(intType>3 || intType<1)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ошибка! Необходимо ввести целое число от 1 до 3");
-                Console.ForegroundColor = ConsoleColor.White;
-                throw new Exception("Ошибка! Необходимо ввести целое число от 1 до 3");
-            }
-
-
+            intType = InputIntValue("Введите тип фигуры (1 - круг, 2 - равносторонний треугольник, 3- прямоугольник):", 3, 1);
             TF = (TypeFigure)intType;
 
-            try
-            {
                 switch (TF)
                 {
                     case TypeFigure.Round:
-                        Radius = InputDoubleValue("Введите радиус круга:");
-                        Console.WriteLine("Площадь круга {0}", pi * Radius * Radius);
-                        Console.WriteLine("Длина окружности {0}", 2 * pi * Radius);
+                        SquareAndPerimetrOfRound();
                         break;
 
                     case TypeFigure.Triangle:
-                        lengthTriangle = InputDoubleValue("Введите длину стороны треугольника:");
-                        Console.WriteLine("Площадь треугольника {0}", Math.Sqrt(3) * lengthTriangle * lengthTriangle / 4);
-                        Console.WriteLine("Периметр треугольника {0}", 3 * lengthTriangle);
+                        SquareAndPerimetrOfTriangle();
                         break;
 
                     case TypeFigure.Rectangle:
-                        lengthREctangleA = InputDoubleValue("Введите длину первой стороны прямоугольника:");
-                        lengthREctangleB = InputDoubleValue("Введите длину второй стороны прямоугольника:");
-                        Console.WriteLine("Площадь прямоугольника {0}", lengthREctangleA * lengthREctangleB);
-                        Console.WriteLine("Периметр прямоугольника {0}", 2 * (lengthREctangleA + lengthREctangleB));
-                        break;
+                         SquareAndPerimetrOfRectangle();
+                         break;
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Ошибка! {0}", e.Message);
 
-            }
-                 
-
-        
             Console.WriteLine("Нажмите любую клавишу для выхода из программы...");
             Console.ReadKey();
         }
