@@ -41,7 +41,7 @@ namespace Lesson_06_Home01
             }
             while (true);
 
-            //считаем количество четных цифр
+            //считаем количество четных цифр в числе
             string strValue = intValue.ToString();
             
             foreach (char ch in strValue)
