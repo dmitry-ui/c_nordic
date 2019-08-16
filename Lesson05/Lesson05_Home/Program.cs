@@ -33,7 +33,6 @@ namespace Lesson05_Home
             while (true);
             return doubleValue;
         }
-
         static int InputIntValue(string comment, int maxValue, int minValue)
         {
             Console.WriteLine(comment);
