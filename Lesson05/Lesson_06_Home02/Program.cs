@@ -4,28 +4,6 @@ namespace Lesson_06_Home02
 {
     class Program
     {
-        static double InputDoubleValue(string comment)
-        {
-            Console.WriteLine(comment);
-            double doubleValue;
-            do
-            {
-                try
-                {
-                    doubleValue = double.Parse(Console.ReadLine());
-                }
-                catch
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Введено нечисловое значение.\nПовторите попытку:");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    continue;
-                }
-                break;
-            }
-            while (true);
-            return doubleValue;
-        }
         static void Main(string[] args)
         {
              /*
@@ -50,6 +28,28 @@ namespace Lesson_06_Home02
 
             Console.WriteLine("\nНажмите любую клавишу для выхода:");
             Console.ReadKey();
+        }
+        static double InputDoubleValue(string comment)
+        {
+            Console.WriteLine(comment);
+            double doubleValue;
+            do
+            {
+                try
+                {
+                    doubleValue = double.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Введено нечисловое значение.\nПовторите попытку:");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    continue;
+                }
+                break;
+            }
+            while (true);
+            return doubleValue;
         }
     }
 }
