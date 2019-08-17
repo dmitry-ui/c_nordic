@@ -15,7 +15,7 @@ namespace Lesson_06_Home02
             double firstSum = InputDoubleValue("Введите первоначальную сумму:");
             double percent = InputDoubleValue("Введите ежедневный процент:");
             double totalSum = InputDoubleValue("Введите итоговую сумму:");
-            double tempSum = firstSum;  //здесь храним накопленную сумму дней для накопления нужной суммы
+            double tempSum = firstSum;  //здесь храним накопленную сумму 
             int totalDays = 0;          //количество дней для накопления
             do
             {
