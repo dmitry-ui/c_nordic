@@ -7,14 +7,38 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //конкатенация
+            ////////////конкатенация
             string s1 = "hello";
             string s2 = "world";
             string s3 = s1 + " " + s2; // результат: строка "hello world"
             string s4 = String.Concat(s3, "!!!"); // результат: строка "hello world!!!"
             Console.WriteLine(s4);
 
-            //соединение строк с использованием join
+            ///////////интерполяция
+            ///Интерполяция строк
+            //Специальный знак $ в начале строки делает интерполированную строку.
+            //При вычислении интерполированной строки в результирующую элементы заменяются
+            //строковыми представлениями результатов выражений.
+            double i1 = 15;
+            double j1 = Math.PI;
+            var s11 = $"{i1} divided by {j1:#.##} equals to {i1 / j1:#.##}";
+            Console.WriteLine(s11); // 15 divided by 3.14 equals to 4.77
+            DateTime now = DateTime.Now;
+            string result4 = $"Now is {now:dd.MM.yyyy HH:mm}";
+            Console.WriteLine(result4); // Now is 29.01.2019 14:00
+
+            //Объединение строк с переменными других типов также возможно с
+            //помощью оператора +.При объединении переменные других типов будут
+            //автоматически приведены к строке с помощью метода ToString().
+            int ii = 15;
+            int j = 3;
+            string result1 = ii + " divided by " + j + " equals to " + ii / j;
+            Console.WriteLine(result1); // 15 divided by 3 equals to 5
+            DateTime nowA = DateTime.Now;
+            string result2 = String.Format("Now is {0:dd.MM.yyyy HH:mm}", nowA);
+            Console.WriteLine(result2); // Now is 05.02.2019 12:00
+
+            /////////////соединение строк с использованием join
             string s5 = "apple";
             string s6 = "a day";
             string s7 = "keeps";
@@ -25,26 +49,39 @@ namespace ConsoleApp1
             Console.WriteLine(s10);
             // результат: строка "apple a day keeps a doctor away"
 
-            //сравнение строк
-            string s11 = "hello";
+            ////////////////////сравнение строк
+            string s111 = "hello";
             string s12 = "world";
-            int result = String.Compare(s11, s12);
+            int result = String.Compare(s111, s12);
             if (result < 0)
             {
-                Console.WriteLine("Строка s11 перед строкой s12");
+                Console.WriteLine("Строка s111 перед строкой s12");
             }
             else if (result > 0)
             {
-                Console.WriteLine("Строка s11 стоит после строки s12");
+                Console.WriteLine("Строка s111 стоит после строки s12");
             }
             else
             {
-                Console.WriteLine("Строки s11 и s12 идентичны");
+                Console.WriteLine("Строки s111 и s12 идентичны");
             }
-            // результатом будет "Строка s1 перед строкой s2"
+            // результатом будет "Строка s111 перед строкой s2"
+
+            string a = "test";
+            string b = "Test";            Console.WriteLine(a == b); // false
+            Console.WriteLine(a.Equals(b)); // false
+                                            // but this will return true
+            Console.WriteLine(a.Equals(b, StringComparison.InvariantCultureIgnoreCase));
+
+            //Методы проверки строк
+            //IsNullOrEmpty(строка не определена или равна string.Emtpy)
+            //IsNullOrWhiteSpace(строка не определена или содержит лишь знаки отступов)
+            Console.WriteLine(string.IsNullOrWhiteSpace(" \t ")); // true
+            Console.WriteLine(string.IsNullOrEmpty("")); // true
+            Console.WriteLine(string.IsNullOrEmpty(null)); // true
 
 
-            //поиск в строке
+            //////////////////////поиск в строке
             string s13 = "hello world";
             char ch = 'o';
             int indexOfChar = s13.IndexOf(ch); // равно 4
@@ -52,6 +89,7 @@ namespace ConsoleApp1
 
             string subString = "wor";
             int indexOfSubstring = s13.IndexOf(subString); // равно 6
+            Console.WriteLine(subString.Contains("or"));
             Console.WriteLine(indexOfSubstring);
             //Подобным образом действует метод LastIndexOf, 
             //только находит индекс последнего вхождения символа или подстроки в строку.
@@ -70,7 +108,7 @@ namespace ConsoleApp1
             }
 
 
-            //разделение строк
+            ///////////////////разделение строк
             string text = "И поэтому все так произошло";
             string[] words = text.Split(new char[] { ' ' });
             //так лучше
@@ -86,7 +124,7 @@ namespace ConsoleApp1
             //Второй параметр StringSplitOptions.RemoveEmptyEntries говорит, что надо удалить все пустые подстроки.
 
 
-            //Обрезка строки
+            ////////////////////////Обрезка строки
             //Для обрезки начальных или концевых символов используется функция Trim:
             string textA = " hello world ";
             Console.WriteLine(textA);
@@ -113,7 +151,10 @@ namespace ConsoleApp1
             //начиная с которого надо обрезать строку. 
             //Вторая версия применяет два параметра - индекс начала обрезки и длину вырезаемой части строки.
 
-            //вставка
+
+
+
+            ///////////////////////////вставка
             //Первым параметром в функции Insert является индекс, по которому надо вставлять подстроку, 
             //а второй параметр - собственно подстрока.
             string textC = "Хороший день";
@@ -131,7 +172,7 @@ namespace ConsoleApp1
             // вырезаем первые два символа
             textD = textD.Remove(0, 2);
 
-            //Замена
+            ///////////////////////////////Замена
             //Чтобы заменить один символ или подстроку на другую, применяется метод Replace:
             string textE = "хороший день";
             textE = textE.Replace("хороший", "плохой");
@@ -139,12 +180,43 @@ namespace ConsoleApp1
             textE = textE.Replace("о", "");
             Console.WriteLine(textE);
 
-            //Смена регистра
+            /////////////////////////////Смена регистра
             //Для приведения строки к верхнему и нижнему регистру 
             //используются соответственно функции ToUpper() и ToLower():
             string hello = "Hello world!";
             Console.WriteLine(hello.ToLower()); // hello world!
             Console.WriteLine(hello.ToUpper()); // HELLO WORLD!
+
+            ////////////////////////Буквальные строковые литералы(@)
+            //Буквальные строки используются для удобства и читабельности, если текст
+            //строки содержит символы обратной косой черты, например в путях к
+            //файлам:
+            Console.WriteLine("c:\\path\\to\\file1.txt"); // c:\path\to\file1.txt
+            Console.WriteLine(@"c:\path\to\file2.txt"); // c:\path\to\file2.txt
+
+            ////////////////////////Форматирование строк
+            //Форматирование позволяет сформировать строку используя шаблон и
+            //объекты с возможностью указать формат. Для этого используется метод
+            //String.Format(...).
+            double q = 15;
+            double w = Math.PI;
+            string qw = String.Format("{0} divided by {1} equals to {2}", q, w, q / w);
+            Console.WriteLine(qw);
+
+            //Можно также указывать формат для некоторых переменных, например можно указать сколько
+            //выводить знаков после запятой или в каком формате указывать дату и время.
+            //Формат указывается через двоеточие после индекса переменной:
+            //{ 0:#.###},
+            //{ 1:dd.MM.yyyy HH:mm}, и т.д.:
+            double e = 15;
+            double r = Math.PI;
+            var ss = String.Format("{0} divided by {1:#.##} equals to {2:#.##}", e, r, e / r);
+            Console.WriteLine(ss); // 15 divided by 3.14 equals to 4.77
+            DateTime now1 = DateTime.Now;
+            string resultA = String.Format("Now is {0:dd.MM.yyyy HH:mm}", now1);
+            Console.WriteLine(resultA); // Now is 29.01.2019 14:00
+
+
             Console.ReadKey();
         }
     }
