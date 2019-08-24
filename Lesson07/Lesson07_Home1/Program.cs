@@ -2,12 +2,12 @@
 
 namespace Lesson07_Home1
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			//вводим строку до тех пор пока не будет введено exit
-			string str = string.Empty;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //вводим строку длиной от двух слов		
+            string str = string.Empty;
             string[] words;
             int count = 0;
             Console.WriteLine("Введите строку длиной не меньше двух слов:");
@@ -28,12 +28,11 @@ namespace Lesson07_Home1
                 if (tempStr[0] == 'а')
                 {
                     count += 1;
-                    Console.WriteLine(tempStr[0]);
                 }
             }
             Console.WriteLine("В строке {0} слов на букву а.", count);
 
             Console.ReadKey();
-		}
-	}
+        }
+    }
 }
