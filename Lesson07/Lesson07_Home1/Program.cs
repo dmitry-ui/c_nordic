@@ -26,12 +26,12 @@ namespace Lesson07_Home1
             foreach (string tempStr in words)
             {
                 if (tempStr[0] == 'а')
-                    count += count;
+                {
+                    count += 1;
+                    Console.WriteLine(tempStr[0]);
+                }
             }
             Console.WriteLine("В строке {0} слов на букву а.", count);
-
-
-
 
             Console.ReadKey();
 		}
