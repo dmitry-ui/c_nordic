@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;  //для Directory
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -68,7 +69,8 @@ namespace ConsoleApp1
             // результатом будет "Строка s111 перед строкой s2"
 
             string a = "test";
-            string b = "Test";            Console.WriteLine(a == b); // false
+            string b = "Test";
+            Console.WriteLine(a == b); // false
             Console.WriteLine(a.Equals(b)); // false
                                             // but this will return true
             Console.WriteLine(a.Equals(b, StringComparison.InvariantCultureIgnoreCase));
@@ -215,6 +217,43 @@ namespace ConsoleApp1
             DateTime now1 = DateTime.Now;
             string resultA = String.Format("Now is {0:dd.MM.yyyy HH:mm}", now1);
             Console.WriteLine(resultA); // Now is 29.01.2019 14:00
+
+            Console.WriteLine("\n\nStringBuilder\n");
+            ////////////////////////Построение строк (StringBuilder)
+            ///
+            /*
+             Класс StringBuilder позволяет эффективно с точки зрения памяти создавать
+            и модифицировать длинные строки.
+            Располагается в области видимости System.Text. Основные члены класса:
+            ● Append() – добавляет аргумент, при необходимости конвертированный в строку, к концу
+            внутренней строчки
+            ● AppendFormat() – добавляет шаблонизированную строку к концу внутренней строки,
+            позволяет передать сразу шаблон форматирования и дополнительные параметры.
+            Является просто сокращенной записью от Append(string.Format())
+            ● Insert() – позволяет вставить в произвольное место внутренней строки переданную
+            параметром строку или переменную, приведенную к строке.
+            ● Remove() – позволяет удалить заданное количество символов внутренней строки начиная с
+            любого места.
+            ● Replace() – аналогично string.Replace – ищет и в случае нахождения изменяет искомую
+            строку заданной.
+            ● ToString() – строит и возвращает внутреннюю строку, когда создание завершено.
+            ● Length - возвращает текущую длину внутренней строки.
+             */
+            // Create a StringBuilder that expects to hold 50 characters.
+            // Initialize the StringBuilder with "ABC".
+            StringBuilder sb = new StringBuilder("ABC", 50);
+            // Append three characters (D, E, and F) to the end of the StringBuilder.
+            sb.Append(new char[] { 'D', 'E', 'F' });
+            // Append a format string to the end of the StringBuilder.
+            sb.AppendFormat("GHI{0}{1}", 'J', 'k');
+            // Display the number of characters in the StringBuilder and its string.
+            Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+            // Insert a string at the beginning of the StringBuilder.
+            sb.Insert(0, "Alphabet: ");
+            // Replace all lowercase k's with uppercase K's.
+            sb.Replace('k', 'K');
+            // Display the number of characters in the StringBuilder and its string.
+            Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
 
 
             Console.ReadKey();
