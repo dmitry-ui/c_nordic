@@ -4,52 +4,36 @@ namespace Lesson07_Home1
 {
 	class Program
 	{
-		//возвращает последнее слово в строке
-		static string EndWord(string str)
-		{
-			string[] words = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-			return words[words.Length - 1];
-		}
-
 		static void Main(string[] args)
 		{
-			//запросить строку, ввод строки оканчивается после ввода слова exit
-			//вывести количество слов на букву А
-
 			//вводим строку до тех пор пока не будет введено exit
 			string str = string.Empty;
-			do
-			{
-				str = str + Console.ReadKey().KeyChar;
-			}
-			while (EndWord(str) != "exit");
+            string[] words;
+            int count = 0;
+            Console.WriteLine("Введите строку длиной не меньше двух слов:");
+            do
+            {
+                str = Console.ReadLine();
+                words = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (words.Length < 2)
+                {
+                    Console.WriteLine("Введены некорректные данные.\nПовторите ввод:");
+                }
+            }
+            while (words.Length < 2);
 
-			//считаем количество слов на чинающихся на букву а
-			string[] words = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-			int count = 0;
-			foreach (string s in words)
-			{
-				if()
-			}
-
-			/*
-			 //поиск в строке
-            string s13 = "hello world";
-            char ch = 'o';
-            int indexOfChar = s13.IndexOf(ch); // равно 4
-            Console.WriteLine(indexOfChar);
-
-            string subString = "wor";
-            int indexOfSubstring = s13.IndexOf(subString); // равно 6
-            Console.WriteLine(indexOfSubstring);
-            //Подобным образом действует метод LastIndexOf, 
-            //только находит индекс последнего вхождения символа или подстроки в строку.
-			 
-			 */
+            //считаем количество слов на букву а
+            foreach (string tempStr in words)
+            {
+                if (tempStr[0] == 'а')
+                    count += count;
+            }
+            Console.WriteLine("В строке {0} слов на букву а.", count);
 
 
 
-			Console.ReadKey();
+
+            Console.ReadKey();
 		}
 	}
 }

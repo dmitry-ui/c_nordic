@@ -31,6 +31,9 @@ namespace Lesson07_home_1
                     Console.WriteLine("Введены некорректные данные,\nПовторите ввод:");
             }
             while (words.Length < 2);
+
+            //считаем количество слов начинающихся на букву А
+
             
 
             Console.ReadKey();
