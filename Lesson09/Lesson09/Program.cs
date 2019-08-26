@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lesson09
 {
@@ -6,19 +7,29 @@ namespace Lesson09
 	{
 		static void Main(string[] args)
 		{
-			const int length = 10;
-			const int maxValue = 100;
+			const int length = 30000;
+			const int maxValue = int.MaxValue;
 			int a = 10;
+			Stopwatch sw = new Stopwatch();
 			UpdateValue(ref a);   //передается по ссылке
 			Console.WriteLine(a);
 			int[] arr = GetInitialArray(length, maxValue);
-			OutputArray(arr, "Исходные данные:");
+			//OutputArray(arr, "Исходные данные:");
+			sw.Start();
 			int[] arr1 = BubleSort(arr);
+			sw.Stop();
+			Console.WriteLine("{0}", sw.ElapsedMilliseconds);
 
-			OutputArray(arr, "Результирующие данные:");
-			OutputArray(arr1, "Результирующие данные:");
+			sw.Restart();
+			int[] sortedArray = SystemSort(arr);
+			sw.Stop();
+			Console.WriteLine("{0}", sw.ElapsedMilliseconds);
+
+			//OutputArray(arr1, "Результирующие данные arr1:");
+			//OutputArray(sortedArray, "Результирующие данные sortedArray:");
 			Console.ReadKey();
 		}
+
 		public static int[] GetInitialArray(int arrayLenght, int maxEleventValue)
 		{
 			int[] arr = new int[arrayLenght];
@@ -61,6 +72,12 @@ namespace Lesson09
 		{
 			a++;
 			Console.WriteLine(a);
+		}
+		private static int[] SystemSort(int[] arr)
+		{
+			int[] a = (int[])arr.Clone();
+			Array.Sort(a);    //встроенная функция сортировки
+			return a;
 		}
 	}
 }
