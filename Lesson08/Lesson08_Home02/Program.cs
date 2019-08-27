@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lesson08_Home02
 {
-	public enum skobki { open, close}
+	
 	class Program
 	{
 
@@ -11,47 +11,54 @@ namespace Lesson08_Home02
 		{
 			//проверить скобки
 			Stack<char> skobki = new Stack<char>();
+            bool ok = true;
 
 			Console.WriteLine("Введите выражение со скобками:");
 			string expression = Console.ReadLine();
 
-			foreach (char symbol in expression)
+            foreach (char symbol in expression)
 			{
-				if (symbol == '(')
-				{
-					skobki.Push('(');
-					//Console.WriteLine(skobki.Count);
-				}
-				if (symbol == '[')
-				{
-					skobki.Push('[');
-					//Console.WriteLine(skobki.Count);
-				}
-				if (symbol == ']')
-				{
-					if(skobki.Peek() == '[')
-						skobki.Pop();
-					else
-						Console.WriteLine("Ошибки в скобках!");
-					//Console.WriteLine(skobki.Count);
-				}
-
-				if (symbol == ')')
-				{
-					if (skobki.Peek() == '(')
-						skobki.Pop();
-					else
-						Console.WriteLine("Ошибки в скобках!");
-					//Console.WriteLine(skobki.Count);
-				}
-				
-
-
-
-
-
-
+                switch (symbol)
+                {
+                    case '(':
+                        skobki.Push('(');
+                        break;
+                    case '[':
+                        skobki.Push('[');
+                        break;
+                    case ')':
+                        if(skobki.Count==0)
+                        {
+                            ok = false;
+                            break;
+                        }
+                        if (skobki.Peek() == '(')
+                            skobki.Pop();
+                        else
+                            ok = false;
+                        break;
+                    case ']':
+                        if (skobki.Count == 0)
+                        {
+                            ok = false;
+                            break;
+                        }
+                        if (skobki.Peek() == '[')
+                            skobki.Pop();
+                        else
+                            ok = false;
+                        break;
+                } 
 			}
+
+            if(skobki.Count!=0)
+                ok = false;
+
+            if(ok)
+                Console.WriteLine("Скобки расставлены корректно.");
+            else
+                Console.WriteLine("Ошибка при расставлении скобок!");
+            Console.WriteLine("\nДля выхода из программы нажмите любую клавишу:");
 			Console.ReadKey();
 		}
 	}
