@@ -40,7 +40,7 @@ namespace Lesson10
 		{
 			get
 			{
-				return Sex;
+				return sexof;
 			}
 			set
 			{
