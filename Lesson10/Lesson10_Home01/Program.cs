@@ -33,25 +33,13 @@ namespace Lesson10_Home01
         private int _ageNow;
         private string name
         {
-            //get
-            //{
-            //    return _name;
-            //}
-            //set
-            //{
-            //    if (true/*value != string.Empty*/)
-            //        _name = value;
-            //    else
-            //        throw new Exception("Введено некорректное имя!!!");
-
-            //}
             get { return _name; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                     _name = value;
                 else
-                    throw new Exception("Введены некорректные данные");
+                    throw new Exception("Введены некорректные данные. Необходимо ввести имя...");
             }
         }
         private int age
@@ -88,7 +76,15 @@ namespace Lesson10_Home01
             Console.WriteLine("Введите имя:");
             name = Console.ReadLine();
             Console.WriteLine("Введите возраст:");
-            age = int.Parse(Console.ReadLine());
+            try
+            {
+                age = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Ошибка ввода! Необходимо ввести число.");
+                throw new Exception("Ошибка ввода! Необходимо ввести число.");
+            }
            
         }
     }
