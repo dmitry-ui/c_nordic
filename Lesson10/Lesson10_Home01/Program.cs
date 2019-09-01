@@ -46,12 +46,24 @@ namespace Lesson10_Home01
 
             //}
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                    _name = value;
+                else
+                    throw new Exception("Введены некорректные данные");
+            }
         }
         private int age
         {
             get { return _ageNow; }
-            set { _ageNow = value; }
+            set
+            {
+                if( value >=0 && value< 300)
+                    _ageNow = value;
+                else
+                    throw new Exception("Введен некорректный возраст");
+            } 
         }
         private int ageIn4Years
         {
