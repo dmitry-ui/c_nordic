@@ -27,6 +27,7 @@ namespace Lesson10_Home01
             Console.ReadKey();
         }
     }
+
     class People
     {
         private string _name;
