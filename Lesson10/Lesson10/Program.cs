@@ -48,7 +48,6 @@ namespace Lesson10
 					sexof = Char.ToUpper(value);
 				else
 					throw new Exception();
-				
 			}
 
 		}
