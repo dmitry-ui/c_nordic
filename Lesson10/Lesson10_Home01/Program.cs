@@ -85,7 +85,6 @@ namespace Lesson10_Home01
                 Console.WriteLine("Ошибка ввода! Необходимо ввести число.");
                 throw new Exception("Ошибка ввода! Необходимо ввести число.");
             }
-           
         }
     }
 }
