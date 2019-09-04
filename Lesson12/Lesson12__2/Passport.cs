@@ -11,7 +11,6 @@ namespace Lesson12__2
 		public string PersonName { get; set; }
 		public Passport(string country, string personname, string docnumber, DateTimeOffset issuedate): base("Passport", docnumber, issuedate)
 		{
-			
 			Country = country;
 			PersonName = personname;
 		}
@@ -22,6 +21,9 @@ namespace Lesson12__2
 				return base.PropertiesString + $"\nCountry: {Country}\nPersonName: {PersonName}";
 			}
 		}
-		
+		public void ChangeIssueDate(DateTimeOffset newIssueDate)
+		{
+			IssueDate = newIssueDate;
+		}
 	}
 }
