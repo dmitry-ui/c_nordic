@@ -6,7 +6,13 @@ namespace TryParse
     {
         static void Main(string[] args)
         {
-            //контроль введенного числа с клавиатуры
+            //так не очень
+            //Console.WriteLine("Введите число:");
+            //string str = Console.ReadLine();
+            //int val = int.Parse(str);
+            //Console.WriteLine("Вы ввели число {0}", val);
+
+            //так лучше
             int val1;
             Console.WriteLine("Введите число:");
             string str1;
@@ -22,10 +28,10 @@ namespace TryParse
                     ok = int.TryParse(str1, out val1);
                 }
                 while (!ok);
-            }
-
+            } 
+            
             Console.WriteLine("Вы ввели число {0}", val1);
-
+            
             Console.ReadKey();
         }
     }
