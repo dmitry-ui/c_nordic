@@ -7,12 +7,20 @@ namespace nasl.Transports
     class Transport
     {
         public enum Engines { Diesel, Dvs}
+
         public enum TypesOfTransport { Car, Lorry, Bus, Motocicle}
+
         public TypesOfTransport TypeOfTransport{ get; set; }
+
         public string RegNumber { get; set; }
+
         public Engines TypeOfEngine { get; set; }
+
         public int PowerOfEngine { get; set; }
-        public Transport() { }
+
+        public Transport() : this (Transport.TypesOfTransport.Car, "", Engines.Dvs, 1000)
+        { }
+
         public Transport(TypesOfTransport tt, string rn, Engines en, int p )
         {
             TypeOfTransport = tt;

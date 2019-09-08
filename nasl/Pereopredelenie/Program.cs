@@ -42,12 +42,12 @@ namespace nasl
             foreach (Transport tr in MyGarage)
             {
                 Console.WriteLine(tr.GetType());
-                //Console.WriteLine(tr.GetProperties());
-                //Console.WriteLine();
-                if (tr is Car)
-                    Console.WriteLine("Car");
-                else if (tr is Transport)
-                    Console.WriteLine("Transport");
+                Console.WriteLine(tr.GetProperties());
+                Console.WriteLine();
+                //if (tr is Car)
+                //    Console.WriteLine("Car");
+                //else if (tr is Transport)
+                //    Console.WriteLine("Transport");
             }
 
 
