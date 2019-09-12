@@ -9,17 +9,17 @@ namespace Lesson13_Home
     {
         public string GetInfoMessage(string str)
         {
-            return $"{DateTime.Now} <tab>Info<tab>{str}";
+            return $"{DateTime.Now}\tInfo\t{str}";
         }
 
         public string GetWarningMessage(string str)
         {
-            return $"{DateTime.Now} <tab>Warning<tab>{str}";
+            return $"{DateTime.Now}\tWarning\t{str}";
         }
 
         public string GetErrorMessage(string str)
         {
-            return $"{DateTime.Now} <tab>Error<tab>{str}";
+            return $"{DateTime.Now}\tError\t{str}";
         }
     }
 
