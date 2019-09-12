@@ -1,43 +1,99 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Lesson13_Home
 {
-    public static class ErrorMessage
-    { 
-        public static string GetInfoMessage(string str)
+    public class ErrorMessage
+    {
+        public string GetInfoMessage(string str)
         {
             return $"{DateTime.Now} <tab>Info<tab>{str}";
         }
 
-        public static string GetWarningMessage(string str)
+        public string GetWarningMessage(string str)
         {
             return $"{DateTime.Now} <tab>Warning<tab>{str}";
         }
 
-        public static string GetErrorMessage(string str)
+        public string GetErrorMessage(string str)
         {
             return $"{DateTime.Now} <tab>Error<tab>{str}";
         }
     }
 
-    public static class ConsoleLogWriter
+    public class ConsoleLogWriter : ErrorMessage
     {
-        public static void LogInfo(string message)
+        public void LogInfo(string message)
         {
-            Console.WriteLine(ErrorMessage.GetInfoMessage(message));
+            Console.WriteLine(GetInfoMessage(message));
         }
 
-        public static void LogWarning(string message)
+        public void LogWarning(string message)
         {
-            Console.WriteLine(ErrorMessage.GetWarningMessage(message));
+            Console.WriteLine(GetWarningMessage(message));
         }
 
-        public static void LogError(string message)
+        public void LogError(string message)
         {
-            Console.WriteLine(ErrorMessage.GetErrorMessage(message));
+            Console.WriteLine(GetErrorMessage(message));
         }
 
     }
+
+    public class FileLogWriter : ErrorMessage
+    { 
+
+        public string writePath = @"C:\SomeDir\ath.txt";
+        //public string text = "1234566";
+        public void LogInfo(string message)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(GetInfoMessage(message));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void LogWarning(string message)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(GetWarningMessage(message));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void LogError(string message)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(GetErrorMessage(message));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+    }
 }
+
+
