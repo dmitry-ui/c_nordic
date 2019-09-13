@@ -5,8 +5,16 @@ using System.Text;
 
 namespace Lesson13_Home
 {
-    public class ErrorMessage
+    public interface ILogWriter
     {
+        void LogInfo(string message);
+        void LogWarning(string message);
+        void LogError(string message);
+    }
+
+    public abstract class ErrorMessage
+    {
+        //надо уменьшить количество функций
         public string GetInfoMessage(string str)
         {
             return $"{DateTime.Now}\tInfo\t{str}";
@@ -21,33 +29,39 @@ namespace Lesson13_Home
         {
             return $"{DateTime.Now}\tError\t{str}";
         }
+
+        public abstract void LogInfo(string message);
+
+        public abstract void LogWarning(string message);
+
+        public abstract void LogError(string message);
     }
 
-    public class ConsoleLogWriter : ErrorMessage
+    public class ConsoleLogWriter : ErrorMessage, ILogWriter
     {
-        public void LogInfo(string message)
+        public override void LogInfo(string message)
         {
             Console.WriteLine(GetInfoMessage(message));
         }
 
-        public void LogWarning(string message)
+        public override void LogWarning(string message)
         {
             Console.WriteLine(GetWarningMessage(message));
         }
 
-        public void LogError(string message)
+        public override void LogError(string message)
         {
             Console.WriteLine(GetErrorMessage(message));
         }
-
     }
 
     public class FileLogWriter : ErrorMessage
     { 
-
         public string writePath = @"C:\SomeDir\ath.txt";
-        //public string text = "1234566";
-        public void LogInfo(string message)
+
+        //надо констр с параметом
+        
+        public override void LogInfo(string message)
         {
             try
             {
@@ -62,7 +76,7 @@ namespace Lesson13_Home
             }
         }
 
-        public void LogWarning(string message)
+        public override void LogWarning(string message)
         {
             try
             {
@@ -77,7 +91,7 @@ namespace Lesson13_Home
             }
         }
 
-        public void LogError(string message)
+        public override void LogError(string message)
         {
             try
             {
@@ -91,8 +105,6 @@ namespace Lesson13_Home
                 Console.WriteLine(e.Message);
             }
         }
-
-
     }
 }
 
