@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Lesson13_Home
@@ -8,19 +9,16 @@ namespace Lesson13_Home
         static void Main(string[] args)
         {
             ConsoleLogWriter cl = new ConsoleLogWriter();
-            cl.LogInfo("Все ОК");
-            cl.LogWarning("Что-то не совсем так");
-            cl.LogError("Error!!!");
-
-            FileLogWriter fl = new FileLogWriter();
-            fl.LogInfo("Все ОК");
-            fl.LogWarning("Что-то не совсем так");
-            fl.LogError("Error!!!");
-
-
-
-
-
+            FileLogWriter fl = new FileLogWriter(@"C:\SomeDir\my_log.log");
+            FileLogWriter fl1 = new FileLogWriter(@"C:\SomeDir\my_log1.log");
+            List<ILogWriter> ILR = new List<ILogWriter>(2);
+            ILR.Add(cl);
+            ILR.Add(fl);
+            ILR.Add(fl1);
+            MultipleLogWriter ML = new MultipleLogWriter(ILR);
+            ML.LogInfo("Работает INFO!!!");
+            ML.LogWarning("Работает Warning!!!");
+            ML.LogError("Работает Error!!!");
             Console.ReadKey();
         }
     }

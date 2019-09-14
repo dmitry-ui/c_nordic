@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -12,22 +13,13 @@ namespace Lesson13_Home
         void LogError(string message);
     }
 
-    public abstract class ErrorMessage
+    public abstract class ErrorMessage : ILogWriter, IEnumerable
     {
-        //надо уменьшить количество функций
-        public string GetInfoMessage(string str)
-        {
-            return $"{DateTime.Now}\tInfo\t{str}";
-        }
+        public enum TypeLogMessage { Info, Warning, Error }
 
-        public string GetWarningMessage(string str)
+        public string GetMessage(TypeLogMessage LM, string str)
         {
-            return $"{DateTime.Now}\tWarning\t{str}";
-        }
-
-        public string GetErrorMessage(string str)
-        {
-            return $"{DateTime.Now}\tError\t{str}";
+            return $"{DateTime.Now}\t{LM}\t{str}";
         }
 
         public abstract void LogInfo(string message);
@@ -35,39 +27,47 @@ namespace Lesson13_Home
         public abstract void LogWarning(string message);
 
         public abstract void LogError(string message);
+
+        public IEnumerator GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 
-    public class ConsoleLogWriter : ErrorMessage, ILogWriter
+    public class ConsoleLogWriter : ErrorMessage
     {
         public override void LogInfo(string message)
         {
-            Console.WriteLine(GetInfoMessage(message));
+            Console.WriteLine(GetMessage(TypeLogMessage.Info, message));
         }
 
         public override void LogWarning(string message)
         {
-            Console.WriteLine(GetWarningMessage(message));
+            Console.WriteLine(GetMessage(TypeLogMessage.Warning, message));
         }
 
         public override void LogError(string message)
         {
-            Console.WriteLine(GetErrorMessage(message));
+            Console.WriteLine(GetMessage(TypeLogMessage.Error, message));
         }
     }
 
     public class FileLogWriter : ErrorMessage
-    { 
-        public string writePath = @"C:\SomeDir\ath.txt";
+    {
+        public string FullFileName;
 
-        //надо констр с параметом
-        
+        public FileLogWriter(string path = @"C:\SomeDir\ath.txt")
+        {
+            FullFileName = path;
+        }
+
         public override void LogInfo(string message)
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
                 {
-                    sw.WriteLine(GetInfoMessage(message));
+                    sw.WriteLine(GetMessage(TypeLogMessage.Info, message));
                 }
             }
             catch (Exception e)
@@ -80,9 +80,9 @@ namespace Lesson13_Home
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
                 {
-                    sw.WriteLine(GetWarningMessage(message));
+                    sw.WriteLine(GetMessage(TypeLogMessage.Warning, message));
                 }
             }
             catch (Exception e)
@@ -95,14 +95,50 @@ namespace Lesson13_Home
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
                 {
-                    sw.WriteLine(GetErrorMessage(message));
+                    sw.WriteLine(GetMessage(TypeLogMessage.Error, message));
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+    }
+
+    public class MultipleLogWriter : ErrorMessage
+    {
+        List<ILogWriter> Data;
+
+        public string writePath = @"C:\SomeDir\ath.txt";
+
+        public MultipleLogWriter(List<ILogWriter> data)
+        {
+            Data = data;
+        }
+
+        public override void LogInfo(string message)
+        {
+            foreach (ILogWriter IL in Data)
+            {
+                IL.LogInfo(message);
+            }
+        }
+
+        public override void LogError(string message)
+        {
+            foreach (ILogWriter IL in Data)
+            {
+                IL.LogWarning(message);
+            }
+        }
+
+        public override void LogWarning(string message)
+        {
+            foreach (ILogWriter IL in Data)
+            {
+                IL.LogError(message);
             }
         }
     }
