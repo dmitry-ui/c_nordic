@@ -111,7 +111,7 @@ namespace Lesson13_Home
     {
         List<ILogWriter> Data;
 
-        public string writePath = @"C:\SomeDir\ath.txt";
+        public string writePath = @"C:\SomeDir\read.log";
 
         public MultipleLogWriter(List<ILogWriter> data)
         {
