@@ -17,7 +17,7 @@ namespace Lesson13_Home
             ILR.Add(cl1);
             ILR.Add(fl);
             ILR.Add(fl1);
-            MultipleLogWriter ML = new MultipleLogWriter(ILR);
+            MultipleLogWriter ML = MultipleLogWriter.SetMultipleLogWriter(ILR);
             ML.LogInfo("Работает INFO!!!");
             ML.LogWarning("Работает Warning!!!");
             ML.LogError("Работает Error!!!");

@@ -136,11 +136,20 @@ namespace Lesson13_Home
     {
         List<ILogWriter> Data;
 
-        public string writePath = @"C:\SomeDir\read.log";
+        private static MultipleLogWriter _instance;
 
-        public MultipleLogWriter(List<ILogWriter> data)
+        //public string writePath = @"C:\SomeDir\read.log";
+
+        private MultipleLogWriter(List<ILogWriter> data)
         {
             Data = data;
+        }
+
+        public static MultipleLogWriter SetMultipleLogWriter(List<ILogWriter> data)
+        {
+            if (_instance == null)
+                _instance = new MultipleLogWriter(data);
+            return _instance;
         }
 
         public override void LogInfo(string message)
