@@ -7,7 +7,7 @@ using System.Text;
 namespace Lesson14_Home
 {
 
-    public class FileLogWriter : BaseErrorMessage, IEnumerable
+    public class FileLogWriter : BaseErrorMessage//, IEnumerable
     {
         //реализован синглтон
         private static FileLogWriter _instance;
@@ -19,7 +19,7 @@ namespace Lesson14_Home
             FullFileName = path;
         }
 
-        public static FileLogWriter SetFileLogWriter(string path = @"C:\SomeDir\ath.txt")
+        public static FileLogWriter GetFileLogWriter(string path = @"C:\SomeDir\ath.txt")
         {
             if (_instance == null)
                 _instance = new FileLogWriter(path);
@@ -71,10 +71,10 @@ namespace Lesson14_Home
             }
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        //public IEnumerator GetEnumerator()
+        //{
+        //    return GetEnumerator();
+        //}
     }
 
 }

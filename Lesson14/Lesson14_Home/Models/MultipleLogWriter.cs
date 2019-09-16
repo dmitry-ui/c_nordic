@@ -18,7 +18,7 @@ namespace Lesson14_Home
             Data = data;
         }
 
-        public static MultipleLogWriter SetMultipleLogWriter(List<ILogWriter> data)
+        public static MultipleLogWriter GetMultipleLogWriter(List<ILogWriter> data)
         {
             if (_instance == null)
                 _instance = new MultipleLogWriter(data);

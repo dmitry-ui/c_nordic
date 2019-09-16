@@ -8,16 +8,16 @@ namespace Lesson14_Home
     {
         static void Main(string[] args)
         {
-            ConsoleLogWriter cl = ConsoleLogWriter.SetConsoleLogWriter();
-            ConsoleLogWriter cl1 = ConsoleLogWriter.SetConsoleLogWriter();
-            FileLogWriter fl = FileLogWriter.SetFileLogWriter(@"C:\SomeDir\my_log.log");
-            FileLogWriter fl1 = FileLogWriter.SetFileLogWriter(@"C:\SomeDir\my_log1.log");
+            ConsoleLogWriter cl = ConsoleLogWriter.GetConsoleLogWriter();
+            ConsoleLogWriter cl1 = ConsoleLogWriter.GetConsoleLogWriter();
+            FileLogWriter fl = FileLogWriter.GetFileLogWriter(@"C:\SomeDir\my_log.log");
+            FileLogWriter fl1 = FileLogWriter.GetFileLogWriter(@"C:\SomeDir\my_log1.log");
             List<ILogWriter> ILR = new List<ILogWriter>(4);
             ILR.Add(cl);
             ILR.Add(cl1);
             ILR.Add(fl);
             ILR.Add(fl1);
-            MultipleLogWriter ML = MultipleLogWriter.SetMultipleLogWriter(ILR);
+            MultipleLogWriter ML = MultipleLogWriter.GetMultipleLogWriter(ILR);
             ML.LogInfo("Работает INFO!!!");
             ML.LogWarning("Работает Warning!!!");
             ML.LogError("Работает Error!!!");

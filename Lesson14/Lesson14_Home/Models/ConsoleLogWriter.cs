@@ -15,7 +15,7 @@ namespace Lesson14_Home
         {
         }
 
-        public static ConsoleLogWriter SetConsoleLogWriter()
+        public static ConsoleLogWriter GetConsoleLogWriter()
         {
             if (_singleConsoleLogWriter == null)
                 _singleConsoleLogWriter = new ConsoleLogWriter();
