@@ -9,5 +9,6 @@ namespace Lesson14_Home
         void LogInfo(string message);
         void LogWarning(string message);
         void LogError(string message);
-    }
+		void LogSingleRecord(LogMessageType logMessageType, string message);
+	}
 }

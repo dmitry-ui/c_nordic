@@ -5,21 +5,33 @@ using System.Text;
 
 namespace Lesson14_Home
 {
+	public abstract class BaseLogWriter : ILogWriter
+	{
+		protected string _logFormat = "{0:yyyy-MM-dd hh:mm:ss}+0000\t{1}\t{2}";
 
-    public abstract class BaseErrorMessage : ILogWriter
-    {
-        public enum LogMessageType { Info, Warning, Error }
+		//public string GetLogFormat
 
-        public string GetMessage(LogMessageType LM, string str)
-        {
-            return $"{DateTime.Now}\t{LM}\t{str}";
-        }
+		protected string GetMessage(LogMessageType logMessageType, string message)
+		{
+			return $"{DateTime.Now}\t{logMessageType}\t{message}";
+		}
 
-        public abstract void LogInfo(string message);
+		public void LogInfo(string message)
+		{
+			LogSingleRecord(LogMessageType.Info, message);
+		}
 
-        public abstract void LogWarning(string message);
+		public void LogWarning(string message)
+		{
+			LogSingleRecord(LogMessageType.Warning, message);
+		}
 
-        public abstract void LogError(string message);
+		public void LogError(string message)
+		{
+			LogSingleRecord(LogMessageType.Error, message);
+		}
+
+		public abstract void LogSingleRecord(LogMessageType logMessageType, string message);
     }
 
 }
