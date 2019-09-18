@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Lesson15
 {
-	public static class Swapper<T> where T : class, new()  // struct
+	public static class Swapper<T> where T : class, new()  // struct    class
+		//new() - разрешить внутри объекта создавать другие объекты
 	{
 		public static void Swap(ref T a, ref T b) 
 		{
@@ -12,6 +13,7 @@ namespace Lesson15
 			a = b;
 			b = temp;
 		}
+
 
 		public static T GetDefaultObject()
 		{
