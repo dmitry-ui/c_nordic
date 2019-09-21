@@ -7,74 +7,47 @@ using System.Text;
 namespace Lesson14_Home
 {
 
-    public class FileLogWriter : BaseErrorMessage, IEnumerable
-    {
-        //реализован синглтон
-        private static FileLogWriter _instance;
+	public class FileLogWriter : BaseLogWriter, IDisposable
+	{
+		private StreamWriter _streamWriter;
+		//реализован синглтон
+		//private static FileLogWriter _instance;
 
-        public string FullFileName;
+		//public string FullFileName;
 
-        private FileLogWriter(string path)
-        {
-            FullFileName = path;
-        }
+		public FileLogWriter(string path)
+		{
+			//FullFileName = path;
+			_streamWriter = new StreamWriter(File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite,FileShare.Read));
+			_streamWriter.BaseStream.Seek(0, SeekOrigin.End);  //в конец файла
+		}
 
-        public static FileLogWriter SetFileLogWriter(string path = @"C:\SomeDir\ath.txt")
-        {
-            if (_instance == null)
-                _instance = new FileLogWriter(path);
-            return _instance;
-        }
+		public void Dispose()
+		{
+			if (_streamWriter != null)
+				_streamWriter.Dispose();
+		}
 
-        public override void LogInfo(string message)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
-                {
-                    sw.WriteLine(GetMessage(LogMessageType.Info, message));
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+		//public static FileLogWriter GetFileLogWriter(string path = @"C:\SomeDir\ath.txt")
+		//{
+		//	if (_instance == null)
+		//		_instance = new FileLogWriter(path);
+		//	return _instance;
+		//}
 
-        public override void LogWarning(string message)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
-                {
-                    sw.WriteLine(GetMessage(LogMessageType.Warning, message));
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+		public override void LogSingleRecord(LogMessageType logMessageType, string message)
+		{
+			try
+			{
+				_streamWriter.WriteLine(GetMessage(logMessageType, message));
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
 
-        public override void LogError(string message)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(FullFileName, true, System.Text.Encoding.Default))
-                {
-                    sw.WriteLine(GetMessage(LogMessageType.Error, message));
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-    }
+		
+	}
 
 }
