@@ -6,9 +6,18 @@ namespace Lesson14_Home2
 {
     class MultipleLogWriter : LogWriter
     {
+        private static MultipleLogWriter instance;
+
         List<ILogWriter> _lw = new List<ILogWriter>();
 
-        public MultipleLogWriter(List<ILogWriter> lw)
+        public static MultipleLogWriter GetSingleMultipleLogWriter(List<ILogWriter> lw)
+        {
+            if (instance == null)
+                instance = new MultipleLogWriter(lw);
+            return instance;
+        }
+
+        private MultipleLogWriter(List<ILogWriter> lw)
         {
             _lw = lw;
         }

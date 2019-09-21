@@ -8,19 +8,23 @@ namespace Lesson14_Home2
         static void Main(string[] args)
         {
             //через мульти
-            ConsoleLogWriter CL = new ConsoleLogWriter();
+            ConsoleLogWriter CL = ConsoleLogWriter.GetSingleConsoleLogWriter();
 
-            FileLogWriter FL = new FileLogWriter();
+            FileLogWriter FL = FileLogWriter.GetSingleFileLogWriter("c:\\SomeDir\\my_log.txt");
 
-            List<ILogWriter> IL = new List<ILogWriter>() { CL, FL };
+            FileLogWriter FL1 = FileLogWriter.GetSingleFileLogWriter("c:\\SomeDir\\my_log1.txt");
 
-            MultipleLogWriter ML = new MultipleLogWriter(IL);
+            List<ILogWriter> IL = new List<ILogWriter>() { CL, FL,FL1 };
+
+            MultipleLogWriter ML = MultipleLogWriter.GetSingleMultipleLogWriter(IL);
 
             ML.LogInfo("Собщение из Мульти");
 
             ML.LogWarning("Предупреждение из Мульти");
 
             ML.LogWarning("Ошибка из Мульти");
+
+            //видим, что все логи пишутся в первый файл
 
             Console.ReadKey();
         }
