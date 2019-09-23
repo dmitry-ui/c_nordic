@@ -6,7 +6,7 @@ namespace Lesson15_Home
 {
     class LogWriterFactory
     {
-        public ILogWriter GetLogWriter<T>(object parameters) where T : ILogWriter
+        public ILogWriter GetLogWriter<T>(object parameters) where T : ILogWriter, new()
         {
             //фабрика класса ConsoleLogWriter
             //return new ConsoleLogWriter();
@@ -17,8 +17,11 @@ namespace Lesson15_Home
             //фабрика класса MultipleLogWriter
             //надо содать список из ILogWriter и передать его в конструктор
 
-            return new MultipleLogWriter(lw);
-
+            T TempObject = new T();
+            if(TempObject is ConsoleLogWriter)
+            { return TempObject; }
+            else if (TempObject is FileLogWriter)
+            { }
 
 
         }
