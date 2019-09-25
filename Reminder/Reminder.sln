@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Core", "Reminder.Storage.Core\Reminder.Storage.Core.csproj", "{99C41974-80E1-4D5B-A807-E69EAE163241}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.Core", "Reminder.Storage.Core\Reminder.Storage.Core.csproj", "{99C41974-80E1-4D5B-A807-E69EAE163241}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.InMemory", "Reminder.Storage.InMemory\Reminder.Storage.InMemory.csproj", "{4CDD4187-0BB0-44A6-B5C1-44D453B590A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.InMemory", "Reminder.Storage.InMemory\Reminder.Storage.InMemory.csproj", "{4CDD4187-0BB0-44A6-B5C1-44D453B590A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Core.Test", "Reminder.Storage.Core.Test\Reminder.Storage.Core.Test.csproj", "{42932869-2D85-41EB-9C8C-14DFCD780947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4CDD4187-0BB0-44A6-B5C1-44D453B590A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CDD4187-0BB0-44A6-B5C1-44D453B590A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CDD4187-0BB0-44A6-B5C1-44D453B590A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42932869-2D85-41EB-9C8C-14DFCD780947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42932869-2D85-41EB-9C8C-14DFCD780947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42932869-2D85-41EB-9C8C-14DFCD780947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42932869-2D85-41EB-9C8C-14DFCD780947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
