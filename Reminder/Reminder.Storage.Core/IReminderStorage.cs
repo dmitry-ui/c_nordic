@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Reminder.Storage.Core
 {
-	interface IReminderStorage
+	public interface IReminderStorage
 	{
 		void Add(ReminderItem reminderItem);
 
-		void Update(Guid guid, ReminderItemStatus status);
+		void Update(Guid Id, ReminderItemStatus status);
 
-		ReminderItem Get(Guid guid);
+		ReminderItem Get(Guid Id);
 
 		List<ReminderItem> Get(ReminderItemStatus status);
 

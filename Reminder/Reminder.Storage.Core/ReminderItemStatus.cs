@@ -10,6 +10,5 @@ namespace Reminder.Storage.Core
 		Ready,
 		Sent,
 		Failed,
-
 	}
 }
