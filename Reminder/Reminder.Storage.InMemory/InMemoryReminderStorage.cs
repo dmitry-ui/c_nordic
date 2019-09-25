@@ -7,7 +7,7 @@ namespace Reminder.Storage.InMemory
 {
 	public class InMemoryReminderStorage : IReminderStorage
 	{
-		private Dictionary<Guid, ReminderItem> reminders;
+		internal Dictionary<Guid, ReminderItem> Reminders;
 
 		public void Add(ReminderItem reminderItem)
 		{

@@ -26,6 +26,8 @@ namespace Reminder.Storage.Core.Test
 		}
 
 		public void Constructor_Should_Fill_ID_Other_Then_guid_empty()
+
+
 		{
 			//prepare test data
 			DateTimeOffset date = DateTimeOffset.Parse("2010-01-01T00:00:00");
@@ -38,6 +40,7 @@ namespace Reminder.Storage.Core.Test
 
 			//chek results
 			Assert.AreNotEqual(Guid.Empty, reminderItem.Id);
+
 
 		}
 	}
