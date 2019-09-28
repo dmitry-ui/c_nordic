@@ -6,10 +6,12 @@ namespace Lesson14_Home2
 {
     class MultipleLogWriter : LogWriter
     {
+        //для синглтона
         private static MultipleLogWriter instance;
 
         List<ILogWriter> _lw = new List<ILogWriter>();
 
+        //для синглтона
         public static MultipleLogWriter GetSingleMultipleLogWriter(List<ILogWriter> lw)
         {
             if (instance == null)
@@ -17,6 +19,7 @@ namespace Lesson14_Home2
             return instance;
         }
 
+        //для синглтона изменили на приват 
         private MultipleLogWriter(List<ILogWriter> lw)
         {
             _lw = lw;

@@ -15,5 +15,6 @@ namespace Lesson14_2
         {
             return operation(_radius);
         }
-    }
+    }
+
 }

@@ -9,8 +9,7 @@ namespace Перечислитель
         {
             byte[] my_bytes = new byte[10];
 
-
-            
+                        
             //инициализация
             for (byte i=0; i< my_bytes.Length; i++)
             {
