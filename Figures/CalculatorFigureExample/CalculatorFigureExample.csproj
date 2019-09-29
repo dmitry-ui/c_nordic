@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Calculator.Figure">
+      <HintPath>..\Figures\bin\Debug\netstandard2.0\Calculator.Figure.dll</HintPath>
+    </Reference>
+    <Reference Include="Calculator.Operation">
+      <HintPath>..\FigureOperations\bin\Debug\netstandard2.0\Calculator.Operation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

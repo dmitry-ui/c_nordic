@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Calculator.Figure">
+      <HintPath>..\Figures\bin\Debug\netstandard2.0\Calculator.Figure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
