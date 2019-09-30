@@ -1,4 +1,5 @@
 ﻿using Reminder.Storage.Core;
+using Reminder.Domain.Models;
 using System;
 using System.Threading;
 
@@ -18,6 +19,10 @@ namespace Reminder.Domain
 
 		//делегат для оправки
 		public Action<ReminderItem> SendReminder{get;set;}
+
+		//
+		public event EventHandler<SendingSucceeededEventArgs> SendingSucceeded;
+		public event EventHandler<SendingFailedEventArgs> SendingFailed;
 
 		public ReminderDomain(IReminderStorage storage) : this (storage, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1))
 		{
@@ -47,10 +52,22 @@ namespace Reminder.Domain
 				{
 					SendReminder(readyReminder);
 					_storage.Update(readyReminder.Id, ReminderItemStatus.Sent);
+					SendingSucceeded?.Invoke(this, new SendingSucceeededEventArgs
+					{
+						SendingItem = readyReminder
+					});
 				}
-				catch
+				catch(Exception e)
 				{
 					_storage.Update(readyReminder.Id, ReminderItemStatus.Failed);
+
+					SendingFailed?.Invoke(
+						this,
+						new SendingFailedEventArgs
+						{
+							SendingItem = readyReminder,
+							SendingException = e
+						});
 				}
 			}
 
