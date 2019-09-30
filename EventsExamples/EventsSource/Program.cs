@@ -19,6 +19,8 @@ namespace EventsSource
             eventsSource.OnCount += eventSubscriber.Message;
             eventsSource.OnCount += eventSubscriber1.Message;
 
+			eventsSource.ProcessPartDone += eventSubscriber1.ProcessPartDone;
+
             //запускаем метод в котором срабатывает событие
             eventsSource.Count();
 
@@ -26,5 +28,5 @@ namespace EventsSource
             
             Console.ReadKey();
         }
-    }
+	}
 }

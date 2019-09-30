@@ -11,27 +11,27 @@ namespace Reminder.Storage.InMemory
 
 		public void Add(ReminderItem reminderItem)
 		{
-			reminders.Add(reminderItem.Id, reminderItem);
+			Reminders.Add(reminderItem.Id, reminderItem);
 		}
 
 		public ReminderItem Get(Guid Id)
 		{
-			if (!reminders.ContainsKey(Id))
+			if (!Reminders.ContainsKey(Id))
 				return null;
-				return reminders[Id];
+				return Reminders[Id];
 		}
 
 		public List<ReminderItem> Get(ReminderItemStatus status)
 		{
 			//можно перебрать в цикле и добавить в список и список вернуть
 			//можно через linq
-			return 	reminders.Values.Where((ReminderItem ri) => ri.Status == status).ToList();
+			return Reminders.Values.Where((ReminderItem ri) => ri.Status == status).ToList();
 		}
 
 		public void Update(Guid Id, ReminderItemStatus status)
 		{
-			if (reminders.ContainsKey(Id))
-				reminders[Id].Status = status;
+			if (Reminders.ContainsKey(Id))
+				Reminders[Id].Status = status;
 		}
 	}
 }

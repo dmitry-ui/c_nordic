@@ -11,5 +11,11 @@ namespace EventsSource
         {
             Console.WriteLine($"выполнено {i}%");
         }
-    }
+
+		public void ProcessPartDone(object sender, CounterEventArgs e)
+		{
+			Console.WriteLine($"[новый] выполнено {e.Percentage}%");
+		}
+
+	}
 }
