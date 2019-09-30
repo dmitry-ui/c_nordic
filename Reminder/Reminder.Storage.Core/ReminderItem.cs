@@ -16,7 +16,7 @@ namespace Reminder.Storage.Core
 
 		public TimeSpan TimeToAllarm => Date - DateTimeOffset.Now;
 
-		//public bool isReadyToSend { get; set; } => DateTimeOffset.Now > Date;
+		public bool IsReadyToSend => DateTimeOffset.Now > Date;
 
 		public ReminderItem(DateTimeOffset dt, string message, string contactId)
 		{

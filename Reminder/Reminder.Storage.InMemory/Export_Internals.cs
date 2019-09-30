@@ -1,2 +1,2 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleTo(""Reminder.Storage.InMemory.Test)]
+[assembly:InternalsVisibleTo("Reminder.Storage.InMemory.Test")]
