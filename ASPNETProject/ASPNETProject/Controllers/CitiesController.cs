@@ -49,9 +49,13 @@ namespace ASPNETProject.Controllers
 
 		}
 
-		public JsonResult AddCity()
+		[HttpPost("/api/cities/")]
+		public IActionResult AddCity([FromBody] City city)
 		{
-			throw new NotImplementedException();
+			var citiesDataStore = CitiesDataStore.GetInstance();
+			citiesDataStore.Cities.Add(city);
+
+			return Created("/api/cities/" + city.Id, city); 
 		}
 
 	}
