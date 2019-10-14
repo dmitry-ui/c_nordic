@@ -39,9 +39,5 @@ namespace ASPNETProject.DataStore
 				_citiesDataStore = new CitiesDataStore();
 				return _citiesDataStore;
 		}
-
-		//лист городов
-
-
 	}
 }

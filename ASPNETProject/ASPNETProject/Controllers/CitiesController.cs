@@ -18,8 +18,8 @@ namespace ASPNETProject.Controllers
 		//экшн кот вызывается внешним запросом, в коде это метод
 		public IActionResult GetCities()
 		{
-			var citiesDataStore = CitiesDataStore.GetInstance();
-			var cities = citiesDataStore.Cities;
+            CitiesDataStore citiesDataStore = CitiesDataStore.GetInstance();
+            List<City> cities = citiesDataStore.Cities;
 
 			//var result = new JsonResult(cities);
 			//result.StatusCode = 200;
@@ -30,7 +30,7 @@ namespace ASPNETProject.Controllers
 		[HttpGet("/api/cities/{id}")]
 		public IActionResult GetCity(int id)
 		{
-			var citiesDataStore = CitiesDataStore.GetInstance();
+            CitiesDataStore citiesDataStore = CitiesDataStore.GetInstance();
 			//foreach(City city in citiesDataStore.Cities)
 			//{
 			//	if(city.Id == id)
@@ -54,9 +54,7 @@ namespace ASPNETProject.Controllers
 		{
 			var citiesDataStore = CitiesDataStore.GetInstance();
 			citiesDataStore.Cities.Add(city);
-
 			return Created("/api/cities/" + city.Id, city); 
 		}
-
 	}
 }

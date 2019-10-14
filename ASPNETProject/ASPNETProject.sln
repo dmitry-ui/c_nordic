@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETProject", "ASPNETProject\ASPNETProject.csproj", "{3E1613DA-0375-412F-9945-C5FC7704EE28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETProject", "ASPNETProject\ASPNETProject.csproj", "{3E1613DA-0375-412F-9945-C5FC7704EE28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A_WebService_Home", "A_WebService_Home\A_WebService_Home.csproj", "{2183A389-4143-4C03-AC67-89455236D80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3E1613DA-0375-412F-9945-C5FC7704EE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1613DA-0375-412F-9945-C5FC7704EE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1613DA-0375-412F-9945-C5FC7704EE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2183A389-4143-4C03-AC67-89455236D80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2183A389-4143-4C03-AC67-89455236D80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2183A389-4143-4C03-AC67-89455236D80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2183A389-4143-4C03-AC67-89455236D80B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
