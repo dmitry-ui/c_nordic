@@ -37,6 +37,17 @@ namespace L22_C01_empty_asp_net_core_app.Controllers
 		[HttpPost("/api/cities/")]
 		public IActionResult AddCity([FromBody] CityCreateModel cityCreateModel)
 		{
+
+			if (cityCreateModel == null)
+				return BadRequest();
+
+			//собственная проверка
+			//if (cityCreateModel.Name == cityCreateModel.Description)
+			//	ModelState.AddModelError("Custom", "Description wrong");
+
+			if (!ModelState.IsValid)
+				return BadRequest(ModelState);
+
 			var citiesDataStore = CitiesDataStore.GetInstance();
 
 			int id = citiesDataStore.Cities.Keys.Max() + 1;
