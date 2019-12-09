@@ -109,7 +109,7 @@ namespace Reminder.Storage.SqlServer.ADO
 
 		public void Update(Guid id, ReminderItemStatus status)
 		{
-			//[UpdateReminderItemStatus]
+			//////[UpdateReminderItemStatus]
 			using (var sqlConnection = new SqlConnection(_connectionString))
 			{
 				sqlConnection.Open();
