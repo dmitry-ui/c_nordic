@@ -21,7 +21,8 @@ namespace Reminder.App
 			var storage = new ReminderStorageWebApiClient(
 				"http://localhost:5000/api/reminders");
 
-			string token = "633428988:AAHLW_LaS7A47PDO2I8sbLkIIM9L0joPOSQ";
+			//string token = "633428988:AAHLW_LaS7A47PDO2I8sbLkIIM9L0joPOSQ";
+			string token = "697789387:AAFzSKZg8GmR-_aMktYSwcz0kKiL1D7__ww";
 
 			IWebProxy proxy = new HttpToSocks5Proxy(
 				"proxy.golyakov.net", 1080);

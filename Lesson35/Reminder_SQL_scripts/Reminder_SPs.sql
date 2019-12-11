@@ -65,3 +65,16 @@ begin
 end
 go
 
+--
+DROP PROCEDURE IF EXISTS [dbo].[UpdateReminderItemStatus]
+GO
+create procedure [dbo].[UpdateReminderItemStatus](@Id as uniqueidentifier, @statusId as tinyint)
+as 
+begin
+	set nocount on
+	update ReminderItem
+	set StatusId = @statusId,
+	     UpdatedDate = SYSDATETIMEOFFSET()
+	where Id = @Id
+end
+go

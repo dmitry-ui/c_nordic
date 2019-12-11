@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.WebApi.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.WebApi.Core", "..\Reminder.Storage\Reminder.Storage.WebApi.Core\Reminder.Storage.WebApi.Core.csproj", "{F7D72EAB-7A38-4735-B061-6FEE9E218724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.App.Debug", "Reminder.App.Debug\Reminder.App.Debug.csproj", "{5C89B7CE-DB2F-47EA-B8A8-DCCC3C90864E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.App.Debug", "Reminder.App.Debug\Reminder.App.Debug.csproj", "{5C89B7CE-DB2F-47EA-B8A8-DCCC3C90864E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.InMemory", "..\Reminder.Storage\Reminder.Storage.InMemory\Reminder.Storage.InMemory.csproj", "{BA7A3D09-EEB4-4FAD-B2FF-EAA9427A514F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{5C89B7CE-DB2F-47EA-B8A8-DCCC3C90864E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C89B7CE-DB2F-47EA-B8A8-DCCC3C90864E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C89B7CE-DB2F-47EA-B8A8-DCCC3C90864E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7A3D09-EEB4-4FAD-B2FF-EAA9427A514F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7A3D09-EEB4-4FAD-B2FF-EAA9427A514F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7A3D09-EEB4-4FAD-B2FF-EAA9427A514F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7A3D09-EEB4-4FAD-B2FF-EAA9427A514F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

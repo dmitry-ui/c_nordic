@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reminder.Storage.Core;
 using Reminder.Storage.InMemory;
 using System;
+using Moq;
+using Reminder.Receiver.Core;
 
 namespace Reminder.Domain.Tests
 {
@@ -12,10 +14,16 @@ namespace Reminder.Domain.Tests
 		public void Method_Run_Should_Update_Ready_To_Send_Reminders_To_Status_Ready_From_Awiating()
 		{
 			var storage = new InMemoryReminderStorage();
-			storage.Add(new ReminderItem(DateTimeOffset.Now, null, null));
+			storage.Add(DateTimeOffset.Now, null, null, ReminderItemStatus.Awaiting);
+
+			//создает класс содержащий  интерфейс
+			var mockReceiver = new Mock<IReminderReceiver>();
+			var fakeReceiver = mockReceiver.Object;
+
 
 			using (var domain = new ReminderDomain(
 				storage,
+				fakeReceiver,
 				TimeSpan.FromMilliseconds(50),
 				TimeSpan.FromSeconds(1)))
 			{
@@ -29,15 +37,20 @@ namespace Reminder.Domain.Tests
 		}
 
 		[TestMethod]
-		public void Method_Run_Should_Call_Failed_Event_When_Sending_Thrown_Exception()
+		public void Method_Run_Should_Call_Failed_Event_When_Sending_does_not_Thrown()
 		{
 			var storage = new InMemoryReminderStorage();
-			storage.Add(new ReminderItem(DateTimeOffset.Now, null, null));
+			storage.Add(DateTimeOffset.Now, null, null, ReminderItemStatus.Awaiting);
 
 			bool failedEventCalled = false;
 
+			//создает класс содержащий  интерфейс
+			var mockReceiver = new Mock<IReminderReceiver>();
+			var fakeReceiver = mockReceiver.Object;
+
 			using (var domain = new ReminderDomain(
 				storage,
+				fakeReceiver,
 				TimeSpan.FromMilliseconds(50),
 				TimeSpan.FromSeconds(50)))
 			{
@@ -65,12 +78,17 @@ namespace Reminder.Domain.Tests
 		public void Method_Run_Should_Call_Succeedded_Event_When_Sending_Thrown_Exception()
 		{
 			var storage = new InMemoryReminderStorage();
-			storage.Add(new ReminderItem(DateTimeOffset.Now, null, null));
+			storage.Add(DateTimeOffset.Now, null, null, ReminderItemStatus.Awaiting);
 
 			bool succeededEventCalled = false;
 
+			//создает класс содержащий  интерфейс
+			var mockReceiver = new Mock<IReminderReceiver>();
+			var fakeReceiver = mockReceiver.Object;
+
 			using (var domain = new ReminderDomain(
 				storage,
+				fakeReceiver,
 				TimeSpan.FromMilliseconds(50),
 				TimeSpan.FromSeconds(50)))
 			{
@@ -86,34 +104,6 @@ namespace Reminder.Domain.Tests
 			}
 
 			Assert.IsTrue(succeededEventCalled);
-		}
-
-		[TestMethod]
-		public void Method_Run_Should_Call_SendReminder_Method_For_Particular_Item()
-		{
-			var storage = new InMemoryReminderStorage();
-			storage.Add(new ReminderItem(DateTimeOffset.Now, "test message", null));
-
-			bool sendReminderDelegateCalled = false;
-
-			using (var domain = new ReminderDomain(
-				storage,
-				TimeSpan.FromMilliseconds(50),
-				TimeSpan.FromSeconds(50)))
-			{
-				domain.SendReminder += (ReminderItem r) => 
-				{
-					if (r.Message == "test message")
-					{
-						sendReminderDelegateCalled = true;
-					}
-				};
-
-				domain.Run();
-				System.Threading.Thread.Sleep(1200);
-			}
-
-			Assert.IsTrue(sendReminderDelegateCalled);
 		}
 	}
 }
