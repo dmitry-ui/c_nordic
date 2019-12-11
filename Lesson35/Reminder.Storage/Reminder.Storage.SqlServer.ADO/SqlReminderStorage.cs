@@ -96,11 +96,13 @@ namespace Reminder.Storage.SqlServer.ADO
 						int MessageIndex = reader.GetOrdinal("Message");
 						int StatusIdIndex = reader.GetOrdinal("StatusId");
 
-						result.Add(new ReminderItem(reader.GetGuid(IDIndex),
-									reader.GetDateTimeOffset(TargetDateIndex),
-									reader.GetString(ContactIdIndex),
-									reader.GetString(MessageIndex),
-									(ReminderItemStatus)reader.GetByte(StatusIdIndex)));
+						result.Add(
+							new ReminderItem(
+								reader.GetGuid(IDIndex),
+								reader.GetDateTimeOffset(TargetDateIndex),
+								reader.GetString(MessageIndex),
+								reader.GetString(ContactIdIndex),
+								(ReminderItemStatus)reader.GetByte(StatusIdIndex)));
 					}
 					return result;
 				}

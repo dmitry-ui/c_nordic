@@ -45,11 +45,18 @@ namespace Reminder.App
 			domain.MessageParsingFailed += Domain_MessageParsingFailed;
 			domain.AddingToStorageSuccedded += Domain_AddingToStorageSuccedded;
 			domain.AddingToStorageFailed += Domain_AddingToStorageFailed;
+			domain.SendingFailed += Domain_SendingFailed;
 
 			domain.Run();
 
 			Console.WriteLine("Press any key to exit.");
 			Console.ReadKey();
+		}
+
+		private static void Domain_SendingFailed(object sender, SendingFailedEventArgs e)
+		{
+			Console.WriteLine(
+				$"Sending of item with ID {e.SendingItem.Id} failed with exception {e.SendingException }.");
 		}
 
 		private static void Domain_AddingToStorageFailed(object sender, AddingToStorageFailedEventArgs e)
