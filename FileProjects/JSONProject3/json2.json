@@ -1,0 +1,29 @@
+{
+  "header": "SVG Vewer",
+  "items": [
+    {
+      "id": "Open",
+      "label": "OpenVewer"
+    },
+    {
+      "id": "Close",
+      "label": "CloseVewer"
+    },
+    {
+      "id": "Open1",
+      "label": "OpenVewer"
+    },
+    {
+      "id": "Open2",
+      "label": "OpenVewer"
+    },
+    {
+      "id": "Open",
+      "label": "OpenVewer"
+    },
+    {
+      "id": "Open",
+      "label": "OpenVewer"
+    }
+  ]
+}

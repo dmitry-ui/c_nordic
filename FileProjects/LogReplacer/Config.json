@@ -1,0 +1,27 @@
+{
+  "Name": "LogMovier",
+  "LogDirectory": "C:\\Logs\\LogMovier",
+  "Attributes": [
+    {
+      "TimeStart": "31.12.2019 18:53:00",
+      "TimeIntervalHours": "1",
+      "FromDirectory": "C:\\Test1\\",
+      "ToDirectory": "C:\\Test2\\",
+      "QuantityDaysToMove": 2
+    },
+    {
+      "TimeStart": "28.12.2019 23:28:00",
+      "TimeIntervalHours": "1",
+      "FromDirectory": "C:\\Test3\\",
+      "ToDirectory": "C:\\Test4\\",
+      "QuantityDaysToMove": 30
+    },
+    {
+      "TimeStart": "28.12.2019 21:55:00",
+      "TimeIntervalHours": "1",
+      "FromDirectory": "C:\\Test5\\",
+      "ToDirectory": "C:\\Test6\\",
+      "QuantityDaysToMove": 20
+    }
+  ]
+}
