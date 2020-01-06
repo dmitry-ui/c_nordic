@@ -1,0 +1,8 @@
+{
+  "FullLogFileName": "C:\\Logs\\FileWatcherService\\FileWatcherService.log",
+  "ControlPath": [
+    "C:\\Test1",
+    "C:\\Test3",
+    "C:\\Test5"
+  ]
+}
