@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 
 namespace FileWatcherMultiService
@@ -17,7 +15,7 @@ namespace FileWatcherMultiService
         public Logger()
         {
             watcher = new FileSystemWatcher[_configReader.Count()];
-                
+
             for (int i = 0; i < _configReader.Count(); i++)
             {
                 watcher[i] = new FileSystemWatcher(_configReader.GetControlPath(i));

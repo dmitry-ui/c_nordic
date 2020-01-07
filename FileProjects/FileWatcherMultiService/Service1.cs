@@ -34,7 +34,8 @@ namespace FileWatcherMultiService
         protected override void OnStop()
         {
             logger.Stop();
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
+
         }
     }
 }
