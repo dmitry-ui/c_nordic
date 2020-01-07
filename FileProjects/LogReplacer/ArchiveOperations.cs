@@ -18,7 +18,10 @@ namespace LogReplacer
 
         public ArchiveOperations()
         {
-            configReader = JsonConvert.DeserializeObject<ConfigReader>(File.ReadAllText("Config.json"));
+            //каталог запуска сборки, в ней же конфиг
+            string ConfigFile = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + "\\Config.json";
+            //загружаем данные из файла конфигурации в объект
+            configReader = JsonConvert.DeserializeObject<ConfigReader>(File.ReadAllText(ConfigFile));
 
             timer = new Timer[configReader.Attributes.Length];
 
