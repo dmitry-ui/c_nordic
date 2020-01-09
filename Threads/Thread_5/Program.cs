@@ -44,5 +44,6 @@ class JoinThreads
         mt3.Thrd.Join();
         Console.WriteLine("Потомок #3 присоединен.");
         Console.WriteLine("Основной поток завершен.");
+        Console.ReadKey();
     }
 }
