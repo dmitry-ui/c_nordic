@@ -24,7 +24,8 @@ class MyThread
         Console.WriteLine(Thrd.Name + " завершен.");
     }
 }
-class MoreThreads
+
+class MoreThreads
 {
     static void Main()
     {
@@ -42,4 +43,4 @@ class MyThread
         mt3.Thrd.IsAlive);
         Console.WriteLine("Основной поток завершен.");
     }
-}
+}

@@ -46,4 +46,4 @@ class JoinThreads
         Console.WriteLine("Основной поток завершен.");
         Console.ReadKey();
     }
-}
+}
