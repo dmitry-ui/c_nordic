@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using Models;
+using Newtonsoft.Json;
 
 namespace API_Cities_AppClient
 {
@@ -29,8 +31,15 @@ namespace API_Cities_AppClient
             //ApiOperations.AddCity(newCity);
             //System.Threading.Thread.Sleep(1000);
 
+            //добавим новый город по объекту
+            //CityCreateModel newCity = new CityCreateModel();
+            //newCity.Name = "Калуга";
+            //newCity.description = "Описание";
+            //newCity.NumberOfPintsOfInterest = 100;
+            //ApiOperations.AddCity(newCity);
+
             //удалим город
-            ApiOperations.DeleteCity(7);
+            ApiOperations.DeleteCity(5);
             System.Threading.Thread.Sleep(1000);
 
             Console.WriteLine("Для завершения  програмы нажмите любую клавишу...");
@@ -73,7 +82,7 @@ namespace API_Cities_AppClient
             response.Close();
         }
 
-        //Добавим новый город
+        //Добавим новый город по строке
         public static async Task AddCity(string newCity)
         {
             //post
@@ -103,6 +112,14 @@ namespace API_Cities_AppClient
             }
             response.Close();
             //Console.WriteLine("Запрос выполнен...");
+        }
+
+        //Добавим новый город по объекту
+        public static async Task AddCity(CityCreateModel newCity)
+        {
+            string str = JsonConvert.SerializeObject(newCity);
+
+            AddCity(str);
         }
 
         //Удалим город
