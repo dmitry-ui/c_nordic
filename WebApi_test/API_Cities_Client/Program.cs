@@ -14,31 +14,37 @@ namespace API_Cities_AppClient
     {
         static void Main(string[] args)
         {
-            ApiOperations operaions = new ApiOperations();
+
 
             //получим все города
-            //ApiOperations.GetAllCities();
-            //System.Threading.Thread.Sleep(1000);
-            //Console.WriteLine();
+            Console.WriteLine("Получим все города:");
+            ApiOperations.GetAllCities();
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine();
 
             ////получим один город
-            //ApiOperations.GetCityById(1);
-            //System.Threading.Thread.Sleep(1000);
-            //Console.WriteLine();
+            Console.WriteLine("Получим город по ид:");
+            ApiOperations.GetCityById(1);
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine();
 
             //добавим новый город
-            //string newCity = "{\"name\": \"Morshansk\", \"description\": \"Тамбовская область\", \"numberOfPintsOfInterest\": 150}";
-            //ApiOperations.AddCity(newCity);
-            //System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Добавим город по строке:");
+            string newCity = "{\"name\": \"Morshansk\", \"description\": \"Тамбовская область\", \"numberOfPintsOfInterest\": 150}";
+            ApiOperations.AddCity(newCity);
+            System.Threading.Thread.Sleep(1000);
 
             //добавим новый город по объекту
-            //CityCreateModel newCity = new CityCreateModel();
-            //newCity.Name = "Калуга";
-            //newCity.description = "Описание";
-            //newCity.NumberOfPintsOfInterest = 100;
-            //ApiOperations.AddCity(newCity);
+            Console.WriteLine("Добавим город по объекту:");
+            CityCreateModel City = new CityCreateModel();
+            City.Name = "Калуга";
+            City.description = "Описание";
+            City.NumberOfPintsOfInterest = 100;
+            ApiOperations.AddCity(City);
+            System.Threading.Thread.Sleep(1000);
 
             //удалим город
+            Console.WriteLine("Удалим город:");
             ApiOperations.DeleteCity(5);
             System.Threading.Thread.Sleep(1000);
 
