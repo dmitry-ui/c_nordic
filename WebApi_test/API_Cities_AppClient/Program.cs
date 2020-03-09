@@ -27,9 +27,11 @@ namespace API_Cities_AppClient
             //добавим новый город
             //string newCity = "{\"name\": \"Morshansk\", \"description\": \"Тамбовская область\", \"numberOfPintsOfInterest\": 150}";
             //ApiOperations.AddCity(newCity);
+            //System.Threading.Thread.Sleep(1000);
 
             //удалим город
             ApiOperations.DeleteCity(7);
+            System.Threading.Thread.Sleep(1000);
 
             Console.WriteLine("Для завершения  програмы нажмите любую клавишу...");
             Console.ReadKey();
