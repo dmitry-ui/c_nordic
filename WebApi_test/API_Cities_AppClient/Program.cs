@@ -31,7 +31,7 @@ namespace API_Cities_AppClient
             //удалим город
             ApiOperations.DeleteCity(7);
 
-            Console.WriteLine("Для завершения програмы нажмите любую клавишу...");
+            Console.WriteLine("Для завершения  програмы нажмите любую клавишу...");
             Console.ReadKey();
         }
     }
