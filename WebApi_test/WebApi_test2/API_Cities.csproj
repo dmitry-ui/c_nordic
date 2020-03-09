@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SQLStorage\SQLStorage.csproj" />
+    <ProjectReference Include="..\RAMStorage\RAMStorage.csproj" />
   </ItemGroup>
 
   <ItemGroup>
